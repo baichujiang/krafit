@@ -21,7 +21,7 @@ export function Header({ locale, messages }: Props) {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-3 md:h-16 md:flex-row md:items-center md:justify-between md:gap-0 md:py-0 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-3 md:min-h-20 md:flex-row md:items-center md:justify-between md:gap-0 md:py-2 lg:px-8">
         <div className="flex items-center justify-between md:contents">
           <Link
             href={prefix}

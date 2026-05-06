@@ -8,7 +8,7 @@ export function Hero({ messages }: Props) {
   const { hero } = messages;
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pt-32 pb-20 md:pt-24 md:pb-28">
+    <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pt-40 pb-20 md:pt-32 md:pb-28">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         aria-hidden
