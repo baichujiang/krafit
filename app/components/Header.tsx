@@ -30,6 +30,7 @@ export function Header({ locale, messages }: Props) {
           >
             <BrandLogo
               variant="header"
+              priority
               className="transition-opacity group-hover:opacity-90"
             />
             <span className="hidden min-w-0 flex-col leading-none lg:flex">

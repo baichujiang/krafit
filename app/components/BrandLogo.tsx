@@ -1,9 +1,8 @@
-import { KrafitLogoDark } from "./KrafitLogoDark";
+import Image from "next/image";
 
 type Props = {
   className?: string;
   variant: "header" | "footer";
-  /** Kept for API compatibility; SVG needs no LCP priority */
   priority?: boolean;
 };
 
@@ -12,11 +11,16 @@ const sizeClass = {
   footer: "h-7 w-auto max-w-[200px]",
 } as const;
 
-export function BrandLogo({ className = "", variant }: Props) {
+/** Official dark-theme wordmark (white + lime on dark). */
+export function BrandLogo({ className = "", variant, priority }: Props) {
   return (
-    <KrafitLogoDark
-      title="KRAFIT"
-      className={`${sizeClass[variant]} ${className}`}
+    <Image
+      src="/logo-wordmark.png"
+      alt="KRAFIT"
+      width={1024}
+      height={1024}
+      priority={Boolean(priority)}
+      className={`object-contain object-left ${sizeClass[variant]} ${className}`}
     />
   );
 }
