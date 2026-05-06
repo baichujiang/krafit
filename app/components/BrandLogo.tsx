@@ -6,20 +6,23 @@ type Props = {
   priority?: boolean;
 };
 
+/** Intrinsic size of public/logo-wordmark.png (tight crop, no square canvas). */
+const LOGO_W = 968;
+const LOGO_H = 187;
+
 const sizeClass = {
-  header:
-    "h-12 w-auto max-w-[min(96vw,360px)] sm:h-14 sm:max-w-[min(94vw,440px)] md:h-16 md:max-w-[min(90vw,520px)]",
-  footer: "h-10 w-auto max-w-[min(90vw,300px)] sm:h-11 sm:max-w-[380px]",
+  header: "h-12 w-auto max-w-full sm:h-14 md:h-16",
+  footer: "h-10 w-auto max-w-full sm:h-11",
 } as const;
 
-/** Official dark-theme wordmark (white + lime on dark). */
+/** Wordmark PNG — tight bounds so height-based scaling sets width naturally. */
 export function BrandLogo({ className = "", variant, priority }: Props) {
   return (
     <Image
       src="/logo-wordmark.png"
       alt="KRAFIT"
-      width={1024}
-      height={1024}
+      width={LOGO_W}
+      height={LOGO_H}
       priority={Boolean(priority)}
       className={`object-contain object-left ${sizeClass[variant]} ${className}`}
     />
