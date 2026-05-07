@@ -1,29 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  /* Earth / forest — quality, health, lower footprint */
-  --background: #101816;
-  --foreground: #e8ebe4;
-  --muted: #8a938c;
-  --surface: #161f1c;
-  --surface-elevated: #1c2824;
-  --accent: #8faa92;
-  --accent-soft: rgba(143, 170, 146, 0.14);
-  /* Wordmark chevron — keep brand recognition */
+  /* Layered forest tones — calm, physical product, not “app UI” */
+  --background: #0b100e;
+  --background-warm: #101916;
+  --foreground: #e6eae3;
+  --muted: #7d887f;
+  --surface: #131c18;
+  --surface-elevated: #1a2520;
+  --surface-muted: #0e1512;
+  --accent: #7d9b82;
+  --accent-muted: #5c7360;
+  --accent-soft: rgba(125, 155, 130, 0.12);
   --brand-mark: #c8f23e;
-  --border: rgba(232, 235, 228, 0.11);
+  --border: rgba(230, 234, 227, 0.09);
+  --border-strong: rgba(230, 234, 227, 0.16);
+  --ruler: rgba(125, 155, 130, 0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-warm: var(--background-warm);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-surface-muted: var(--surface-muted);
   --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
   --color-accent-soft: var(--accent-soft);
   --color-brand-mark: var(--brand-mark);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ruler: var(--ruler);
   --font-sans: var(--font-source-sans);
   --font-serif: var(--font-cormorant);
 }
@@ -32,8 +41,28 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+.label-kicker {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Subtle grain — print / natural material feel */
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

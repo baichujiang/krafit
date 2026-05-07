@@ -8,30 +8,31 @@ export function SectionContact({ messages }: Props) {
   const { contact } = messages;
 
   return (
-    <section id="contact" className="py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="border border-border bg-surface p-10 md:grid md:grid-cols-2 md:gap-16 md:p-14 lg:items-start">
+    <section
+      id="contact"
+      className="border-t border-border bg-background-warm py-24 md:py-32"
+    >
+      <div className="mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
+        <div className="grid gap-12 border border-border-strong bg-surface-muted/40 p-10 md:grid-cols-2 md:gap-16 md:p-16 lg:items-start">
           <div>
-            <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="font-serif text-[2rem] font-semibold tracking-[-0.02em] text-foreground text-balance sm:text-[2.35rem]">
               {contact.title}
             </h2>
-            <p className="mt-6 text-base leading-[1.8] text-muted">
+            <p className="mt-8 text-[1.0625rem] leading-[1.82] text-muted">
               {contact.lead}
             </p>
           </div>
-          <div className="mt-10 space-y-6 md:mt-0">
+          <div className="flex flex-col justify-end gap-8 md:text-right">
             <div>
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-muted">
-                {contact.emailLabel}
-              </p>
+              <p className="label-kicker md:text-right">{contact.emailLabel}</p>
               <a
                 href={`mailto:${contact.email}`}
-                className="mt-3 inline-block text-lg font-medium text-foreground underline decoration-foreground/25 underline-offset-[5px] transition-colors hover:decoration-foreground/60"
+                className="mt-4 inline-block text-lg font-medium text-foreground underline decoration-accent/35 underline-offset-[6px] transition-colors hover:decoration-accent md:block"
               >
                 {contact.email}
               </a>
             </div>
-            <p className="text-sm leading-relaxed text-muted">
+            <p className="text-sm leading-relaxed text-muted md:ml-auto md:max-w-sm">
               {contact.emailNote}
             </p>
           </div>

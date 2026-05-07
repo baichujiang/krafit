@@ -21,25 +21,25 @@ export function Footer({ locale, messages }: Props) {
   ];
 
   return (
-    <footer className="border-t border-border bg-surface py-14">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
+    <footer className="border-t border-border bg-surface-muted py-16 md:py-20">
+      <div className="mx-auto flex max-w-[88rem] flex-col gap-12 px-6 md:flex-row md:items-end md:justify-between md:px-10 lg:px-14">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:gap-10">
           <BrandLogo variant="footer" />
-          <p className="text-sm text-muted">
+          <p className="text-[13px] leading-relaxed text-muted">
             © {year} KRAFIT. {footer.rights}
           </p>
         </div>
-        <div className="flex flex-wrap gap-8 text-sm text-muted">
+        <nav className="flex flex-wrap gap-x-10 gap-y-2 text-[13px] text-muted">
           {links.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="hover:text-foreground"
+              className="transition-colors hover:text-foreground"
             >
               {item.label}
             </Link>
           ))}
-        </div>
+        </nav>
       </div>
     </footer>
   );
