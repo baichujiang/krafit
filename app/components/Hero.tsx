@@ -10,7 +10,7 @@ export function Hero({ messages }: Props) {
   return (
     <section className="relative flex min-h-[88svh] flex-col justify-end border-b border-border pt-40 pb-16 md:min-h-[90svh] md:pt-36 md:pb-24">
       <div className="relative mx-auto w-full max-w-3xl px-6 lg:max-w-5xl lg:px-8">
-        <p className="mb-6 max-w-md border-l-2 border-brand-mark pl-4 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-muted">
+        <p className="mb-6 max-w-md border-l-2 border-accent pl-4 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-muted">
           {hero.kicker}
         </p>
         <h1 className="font-serif text-[2.35rem] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-5xl md:text-[3.25rem] md:leading-[1.08]">

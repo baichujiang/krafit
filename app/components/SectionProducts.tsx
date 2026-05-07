@@ -43,7 +43,7 @@ export function SectionProducts({ messages }: Props) {
                     key={h}
                     className="text-sm leading-relaxed text-foreground/90"
                   >
-                    <span className="mr-2 text-brand-mark" aria-hidden>
+                    <span className="mr-2 text-accent" aria-hidden>
                       ·
                     </span>
                     {h}

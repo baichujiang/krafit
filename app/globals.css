@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm, editorial — equipment brand, not SaaS */
-  --background: #0f0e0d;
-  --foreground: #ebe6de;
-  --muted: #8f8980;
-  --surface: #181615;
-  --surface-elevated: #1f1d1b;
-  --accent: #b8a995;
-  --accent-soft: rgba(184, 169, 149, 0.12);
-  /* Logo chevron — use sparingly */
+  /* Earth / forest — quality, health, lower footprint */
+  --background: #101816;
+  --foreground: #e8ebe4;
+  --muted: #8a938c;
+  --surface: #161f1c;
+  --surface-elevated: #1c2824;
+  --accent: #8faa92;
+  --accent-soft: rgba(143, 170, 146, 0.14);
+  /* Wordmark chevron — keep brand recognition */
   --brand-mark: #c8f23e;
-  --border: rgba(235, 230, 222, 0.1);
+  --border: rgba(232, 235, 228, 0.11);
 }
 
 @theme inline {

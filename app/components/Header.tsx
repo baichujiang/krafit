@@ -9,7 +9,7 @@ type Props = {
 };
 
 export function Header({ locale, messages }: Props) {
-  const { nav, navAria, homeAria, lang } = messages;
+  const { nav, navAria, homeAria, lang, tagline } = messages;
   const prefix = `/${locale}`;
 
   const items = [
@@ -33,9 +33,9 @@ export function Header({ locale, messages }: Props) {
               priority
               className="transition-opacity group-hover:opacity-85"
             />
-            <span className="hidden min-w-0 flex-col leading-none lg:flex">
-              <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted">
-                Training essentials
+            <span className="hidden min-w-0 max-w-[14rem] flex-col leading-snug lg:flex">
+              <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted">
+                {tagline}
               </span>
             </span>
           </Link>

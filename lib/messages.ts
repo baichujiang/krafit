@@ -5,6 +5,7 @@ export type Messages = {
   nav: { brand: string; lines: string; craft: string; contact: string; partner: string };
   navAria: string;
   homeAria: string;
+  tagline: string;
   hero: {
     kicker: string;
     title1: string;
@@ -16,11 +17,8 @@ export type Messages = {
   };
   brand: {
     title: string;
-    p1: string;
-    missionLabel: string;
-    mission: string;
-    promiseLabel: string;
-    promise: string;
+    body: string;
+    closing: string;
   };
   products: {
     kicker: string;
@@ -54,77 +52,76 @@ export type Messages = {
 
 const en: Messages = {
   meta: {
-    title: "KRAFIT — Training essentials that hold the line",
+    title: "KRAFIT — Quality training for people and planet",
     description:
-      "KRAFIT engineers resistance bands and push-up stands for predictable, repeatable home training — materials, ergonomics, and QC you can trust.",
-    keywords: "KRAFIT, resistance bands, push-up bars, home gym, strength training",
+      "KRAFIT offers high-quality resistance bands and push-up stands — built to last, with an eye on reducing our footprint and supporting your health.",
+    keywords:
+      "KRAFIT, sustainable fitness, resistance bands, push-up bars, home training, health, CO2",
   },
   nav: {
-    brand: "Brand",
-    lines: "Product lines",
-    craft: "Craft",
+    brand: "About us",
+    lines: "Products",
+    craft: "Responsibility",
     contact: "Contact",
     partner: "Partnerships",
   },
   navAria: "Primary navigation",
   homeAria: "KRAFIT home",
+  tagline: "Quality for you and the planet",
   hero: {
-    kicker: "Resistance training equipment",
-    title1: "Strength you can repeat,",
-    title2: "week after week.",
-    lead: "KRAFIT builds home training tools with an engineering mindset. Resistance bands and push-up stands are not accessories — they are the quiet interface between intent and adaptation.",
-    ctaPrimary: "View the range",
-    ctaSecondary: "Read our story",
+    kicker: "Quality · health · responsibility",
+    title1: "Train with intention.",
+    title2: "Choose equipment that lasts.",
+    lead: "We believe durable, well-made gear supports both your body and a smaller footprint — fewer replacements, more years of use, more focus on what matters.",
+    ctaPrimary: "Explore products",
+    ctaSecondary: "Our purpose",
     scroll: "Scroll",
   },
   brand: {
-    title: "Why KRAFIT",
-    p1: "We believe training lives in repetition and patience. The brand started with frustration around gear that felt disposable — so we rethought tension curves, grip ergonomics, storage, and service life, end to end.",
-    missionLabel: "Mission",
-    mission:
-      "Make strength work at home — and on the road — feel steady, measurable, and worth returning to.",
-    promiseLabel: "Promise",
-    promise:
-      "No novelty for novelty’s sake — only what measurably helps training. The stability you feel comes from tolerances and process, not marketing.",
+    title: "About us",
+    body: "KRAFIT is committed to offering high-quality products. Our goal is to reduce our carbon footprint while improving personal health and quality of life.",
+    closing:
+      "Shape a better future with KRAFIT — make a positive difference for our planet and for yourself.",
   },
   products: {
-    kicker: "Product lines",
+    kicker: "Products",
     title: "The range",
     intro:
-      "Two lines cover the core of pushing and full-body resistance. This is design intent and engineering — not a storefront.",
+      "Thoughtfully designed tools you keep for years — less waste, consistent training, clear engineering choices instead of throwaway accessories.",
     lines: [
       {
         tag: "Resistance",
         name: "Resistance system — bands",
         description:
           "Multi-layer latex with textile jacketing for a curve that tracks natural output. Clearly marked levels for periodization and progression.",
-        highlights: ["Consistent decay profile", "Anti-snap jacketing", "Travel-ready"],
+        highlights: ["Built to outlast seasonal trends", "Repairable mindset", "Compact — less shipping bulk"],
       },
       {
         tag: "Support",
         name: "Support system — push-up stands",
         description:
           "Wide bases and compliant contact surfaces stay planted on wood and tile. Wrist angles validated for long sets without unnecessary strain.",
-        highlights: ["Low-profile stability", "Quiet grip", "Load-tested geometry"],
+        highlights: ["Stable geometry over time", "Quiet, home-friendly use", "Tested load cycles"],
       },
     ],
   },
   craft: {
-    kicker: "Process",
-    title: "Materials & quality",
-    aside: "The backbone of a serious brand is traceable standards and repeatable quality checks.",
+    kicker: "How we work",
+    title: "Materials & care",
+    aside:
+      "Quality and longevity are part of how we think about impact — better products, replaced less often, with processes we keep tightening.",
     steps: [
       {
-        title: "Material selection",
-        body: "Elastic layers and textiles are balanced for weathering, odor, and rebound — not a quick win that turns tacky in month three.",
+        title: "Materials with a long horizon",
+        body: "We balance performance, durability, and how materials age — so gear stays trustworthy beyond the first few months.",
       },
       {
         title: "Structural validation",
-        body: "Push-up stands go through static and dynamic tilt cycles so geometry stays trustworthy after fatigue.",
+        body: "Push-up stands go through static and dynamic tilt cycles so geometry stays reliable after repeated use.",
       },
       {
-        title: "Touch calibration",
-        body: "Grip radii and texture are blind-tested with a simple brief: still comfortable when the set gets long.",
+        title: "Honest ergonomics",
+        body: "Grip radii and textures are tested with a simple question: still comfortable when the session runs long.",
       },
     ],
   },
@@ -147,78 +144,84 @@ const en: Messages = {
 
 const de: Messages = {
   meta: {
-    title: "KRAFIT — Training Essentials, die halten, was sie versprechen",
+    title: "KRAFIT — Qualität für Training, Gesundheit und Verantwortung",
     description:
-      "KRAFIT entwickelt Widerstandsbänder und Liegestütz-Griffe für vorhersehbares, wiederholbares Heimtraining — Materialien, Ergonomie und Qualitätssicherung, denen Sie vertrauen können.",
+      "KRAFIT bietet hochwertige Widerstandsbänder und Liegestütz-Griffe — langlebig gedacht, mit Fokus auf CO2-Bewusstsein und Ihre Lebensqualität.",
     keywords:
-      "KRAFIT, Widerstandsbänder, Liegestützgriffe, Homegym, Krafttraining, Calisthenics",
+      "KRAFIT, nachhaltiges Training, Widerstandsbänder, Liegestützgriffe, Gesundheit, CO2, Qualität",
   },
   nav: {
-    brand: "Marke",
-    lines: "Produktlinien",
-    craft: "Fertigung",
+    brand: "Über uns",
+    lines: "Produkte",
+    craft: "Verantwortung",
     contact: "Kontakt",
     partner: "Partnerschaften",
   },
   navAria: "Hauptnavigation",
   homeAria: "KRAFIT Startseite",
+  tagline: "Qualität für Sie und den Planeten",
   hero: {
-    kicker: "Equipment fürs Krafttraining",
-    title1: "Kraft, die Sie wiederholen können —",
-    title2: "Woche für Woche.",
-    lead: "KRAFIT entwickelt Heimtraining-Ausrüstung mit Ingenieursdenken. Widerstandsbänder und Liegestütz-Griffe sind keine Beigaben — sie sind die ruhige Schnittstelle zwischen Vorsatz und Anpassung.",
-    ctaPrimary: "Zum Sortiment",
-    ctaSecondary: "Zur Markengeschichte",
+    kicker: "Qualität · Gesundheit · Verantwortung",
+    title1: "Trainieren Sie mit Bedacht.",
+    title2: "Wählen Sie Ausrüstung, die bleibt.",
+    lead: "Wir glauben: gut gemachte, langlebige Ausrüstung stützt sowohl Ihren Körper als auch einen geringeren Fußabdruck — weniger Ersatz, mehr Jahre Nutzen, mehr Fokus auf das Wesentliche.",
+    ctaPrimary: "Produkte entdecken",
+    ctaSecondary: "Unser Auftrag",
     scroll: "Weiter",
   },
   brand: {
-    title: "Warum KRAFIT",
-    p1: "Wir glauben, dass Training in Wiederholung und Geduld stattfindet. Die Marke entstand aus der Frustration über Equipment, das sich billig anfühlte — also haben wir Spannungsverläufe, Griff-Ergonomie, Verstauen und Lebensdauer neu gedacht.",
-    missionLabel: "Mission",
-    mission:
-      "Krafttraining zu Hause — und unterwegs — ruhig, messbar und wiederholbar machen.",
-    promiseLabel: "Versprechen",
-    promise:
-      "Keine Spielerei um der Spielerei willen — nur das, was dem Training wirklich hilft. Die Stabilität, die Sie spüren, kommt aus Toleranzen und Prozess — nicht aus Marketing.",
+    title: "Über uns",
+    body: "KRAFIT ist bestrebt, qualitativ hochwertige Produkte anzubieten. Unser Ziel ist es, unseren CO2-Fußabdruck zu reduzieren und gleichzeitig unsere persönliche Gesundheit und Lebensqualität zu verbessern.",
+    closing:
+      "Gestalten Sie mit KRAFIT eine bessere Zukunft und machen Sie einen positiven Unterschied für unseren Planeten und sich selbst.",
   },
   products: {
-    kicker: "Produktlinien",
+    kicker: "Produkte",
     title: "Das Sortiment",
     intro:
-      "Zwei Linien decken das Wesentliche für Druckbewegungen und Ganzkörper-Widerstand ab. Hier geht es um Design und Engineering — nicht um einen Shop.",
+      "Durchdachte Helfer, die Sie Jahre begleiten — weniger Abfall, konstantes Training, klare technische Entscheidungen statt Wegwerf-Zubehör.",
     lines: [
       {
         tag: "Widerstand",
         name: "Widerstandssystem — Bänder",
         description:
-          "Mehrschichtiges Latex mit Textilummantelung für eine Kennlinie, die natürlicher Kraftverlauf näherkommt. Klar markierte Stufen für Periodisierung und Progression.",
-        highlights: ["Konstanter Abfall", "Bruchschutz-Ummantelung", "Reisetauglich"],
+          "Mehrschichtiges Latex mit Textilummantelung für eine Kennlinie, die natürlichem Kraftverlauf nahekommt. Klar markierte Stufen für Periodisierung und Progression.",
+        highlights: [
+          "Gebaut, länger zu halten als Trends",
+          "Reparaturfreundliche Logik",
+          "Kompakt — weniger Versandvolumen",
+        ],
       },
       {
         tag: "Stütze",
         name: "Stützsystem — Liegestütz-Griffe",
         description:
           "Breite Standflächen und griffige Auflage bleiben auf Holz und Fliesen ruhig liegen. Handgelenkswinkel für lange Sätze validiert — ohne unnötige Belastung.",
-        highlights: ["Niedriger Schwerpunkt", "Leise, griffig", "Belastungsgeprüft"],
+        highlights: [
+          "Stabile Geometrie über die Zeit",
+          "Leise, wohnortstauglich",
+          "Geprüfte Lastzyklen",
+        ],
       },
     ],
   },
   craft: {
-    kicker: "Ablauf",
-    title: "Material & Qualität",
-    aside: "Das Rückgrat einer ernsthaften Marke sind nachvollziehbare Standards und wiederholbare Prüfungen.",
+    kicker: "So arbeiten wir",
+    title: "Material & Sorgfalt",
+    aside:
+      "Qualität und Langlebigkeit gehören für uns zur Wirkung dazu — bessere Produkte, seltener ersetzt, mit Prozessen, die wir fortlaufend schärfen.",
     steps: [
       {
-        title: "Materialauswahl",
-        body: "Elastik und Textil sind auf Witterung, Geruch und Rückstellkraft abgestimmt — nicht auf einen schnellen Effekt, der nach wenigen Wochen klebrig wird.",
+        title: "Materialien mit Weitblick",
+        body: "Wir balancieren Leistung, Haltbarkeit und Alterung — damit die Ausrüstung über die ersten Monate hinaus verlässlich bleibt.",
       },
       {
         title: "Strukturprüfung",
-        body: "Liegestütz-Griffe durchlaufen statische und dynamische Kippzyklen, damit die Geometrie auch nach Ermüdung verlässlich bleibt.",
+        body: "Liegestütz-Griffe durchlaufen statische und dynamische Kippzyklen, damit die Geometrie bei Wiederholung stabil bleibt.",
       },
       {
-        title: "Griff-Feintuning",
-        body: "Radien und Oberfläche werden blind getestet — mit einem Ziel: am Ende des Satzes noch angenehm festzuhalten.",
+        title: "Ehrliche Ergonomie",
+        body: "Radien und Oberflächen werden mit einer Frage getestet: am Ende der Einheit noch angenehm zu halten.",
       },
     ],
   },
