@@ -8,30 +8,32 @@ export function SectionContact({ messages }: Props) {
   const { contact } = messages;
 
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-surface-elevated via-surface to-background p-10 md:p-16">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="border border-border bg-surface p-10 md:grid md:grid-cols-2 md:gap-16 md:p-14 lg:items-start">
+          <div>
+            <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              {contact.title}
+            </h2>
+            <p className="mt-6 text-base leading-[1.8] text-muted">
+              {contact.lead}
+            </p>
+          </div>
+          <div className="mt-10 space-y-6 md:mt-0">
             <div>
-              <h2 className="font-display text-4xl tracking-wide text-foreground sm:text-5xl">
-                {contact.title}
-              </h2>
-              <p className="mt-6 leading-relaxed text-muted">{contact.lead}</p>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-muted">
+                {contact.emailLabel}
+              </p>
+              <a
+                href={`mailto:${contact.email}`}
+                className="mt-3 inline-block text-lg font-medium text-foreground underline decoration-foreground/25 underline-offset-[5px] transition-colors hover:decoration-foreground/60"
+              >
+                {contact.email}
+              </a>
             </div>
-            <div className="space-y-6">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted">
-                  {contact.emailLabel}
-                </p>
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="mt-2 inline-block text-lg font-medium text-accent underline-offset-4 hover:underline"
-                >
-                  {contact.email}
-                </a>
-              </div>
-              <p className="text-sm text-muted">{contact.emailNote}</p>
-            </div>
+            <p className="text-sm leading-relaxed text-muted">
+              {contact.emailNote}
+            </p>
           </div>
         </div>
       </div>

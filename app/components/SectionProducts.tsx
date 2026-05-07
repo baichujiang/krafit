@@ -8,42 +8,44 @@ export function SectionProducts({ messages }: Props) {
   const { products } = messages;
 
   return (
-    <section id="lines" className="py-24 md:py-32">
+    <section id="lines" className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-accent">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-muted">
             {products.kicker}
           </p>
-          <h2 className="mt-4 font-display text-4xl tracking-wide text-foreground sm:text-5xl">
+          <h2 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             {products.title}
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
+          <p className="mt-6 text-base leading-[1.8] text-muted md:text-[1.05rem]">
             {products.intro}
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid gap-px bg-border lg:grid-cols-2">
           {products.lines.map((line) => (
             <article
               key={line.tag}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-surface-elevated p-8 transition-colors hover:border-accent/30 md:p-10"
+              className="border border-border bg-background p-8 md:p-10"
             >
-              <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-accent/10 blur-2xl transition-opacity group-hover:opacity-100" />
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-muted">
                 {line.tag}
               </p>
-              <h3 className="mt-4 text-xl font-semibold text-foreground md:text-2xl">
+              <h3 className="mt-5 font-serif text-xl font-semibold text-foreground md:text-2xl">
                 {line.name}
               </h3>
-              <p className="mt-4 leading-relaxed text-muted">
+              <p className="mt-4 text-base leading-[1.8] text-muted">
                 {line.description}
               </p>
-              <ul className="mt-8 flex flex-wrap gap-2">
+              <ul className="mt-8 space-y-2 border-t border-border pt-6">
                 {line.highlights.map((h) => (
                   <li
                     key={h}
-                    className="rounded-full border border-border bg-background/50 px-3 py-1 text-xs font-medium text-foreground/90"
+                    className="text-sm leading-relaxed text-foreground/90"
                   >
+                    <span className="mr-2 text-brand-mark" aria-hidden>
+                      ·
+                    </span>
                     {h}
                   </li>
                 ))}

@@ -69,16 +69,16 @@ const en: Messages = {
   navAria: "Primary navigation",
   homeAria: "KRAFIT home",
   hero: {
-    kicker: "Established discipline",
-    title1: "STRENGTH",
-    title2: "IN EVERY REP",
+    kicker: "Resistance training equipment",
+    title1: "Strength you can repeat,",
+    title2: "week after week.",
     lead: "KRAFIT builds home training tools with an engineering mindset. Resistance bands and push-up stands are not accessories — they are the quiet interface between intent and adaptation.",
-    ctaPrimary: "Explore the lines",
-    ctaSecondary: "Our story",
+    ctaPrimary: "View the range",
+    ctaSecondary: "Read our story",
     scroll: "Scroll",
   },
   brand: {
-    title: "WHY KRAFIT",
+    title: "Why KRAFIT",
     p1: "We believe training lives in repetition and patience. The brand started with frustration around gear that felt disposable — so we rethought tension curves, grip ergonomics, storage, and service life, end to end.",
     missionLabel: "Mission",
     mission:
@@ -89,7 +89,7 @@ const en: Messages = {
   },
   products: {
     kicker: "Product lines",
-    title: "TWO PILLARS",
+    title: "The range",
     intro:
       "Two lines cover the core of pushing and full-body resistance. This is design intent and engineering — not a storefront.",
     lines: [
@@ -111,7 +111,7 @@ const en: Messages = {
   },
   craft: {
     kicker: "Process",
-    title: "CRAFT & QA",
+    title: "Materials & quality",
     aside: "The backbone of a serious brand is traceable standards and repeatable quality checks.",
     steps: [
       {
@@ -129,7 +129,7 @@ const en: Messages = {
     ],
   },
   contact: {
-    title: "LET'S TALK",
+    title: "Contact",
     lead: "For retail partnerships, corporate kits, and press — reach us by email. We typically reply within five business days.",
     emailLabel: "Business email",
     email: "hello@krafit.example",
@@ -163,16 +163,16 @@ const de: Messages = {
   navAria: "Hauptnavigation",
   homeAria: "KRAFIT Startseite",
   hero: {
-    kicker: "Disziplin, die bleibt",
-    title1: "KRAFT",
-    title2: "IN JEDER WIEDERHOLUNG",
+    kicker: "Equipment fürs Krafttraining",
+    title1: "Kraft, die Sie wiederholen können —",
+    title2: "Woche für Woche.",
     lead: "KRAFIT entwickelt Heimtraining-Ausrüstung mit Ingenieursdenken. Widerstandsbänder und Liegestütz-Griffe sind keine Beigaben — sie sind die ruhige Schnittstelle zwischen Vorsatz und Anpassung.",
-    ctaPrimary: "Produktlinien entdecken",
-    ctaSecondary: "Unsere Geschichte",
+    ctaPrimary: "Zum Sortiment",
+    ctaSecondary: "Zur Markengeschichte",
     scroll: "Weiter",
   },
   brand: {
-    title: "WARUM KRAFIT",
+    title: "Warum KRAFIT",
     p1: "Wir glauben, dass Training in Wiederholung und Geduld stattfindet. Die Marke entstand aus der Frustration über Equipment, das sich billig anfühlte — also haben wir Spannungsverläufe, Griff-Ergonomie, Verstauen und Lebensdauer neu gedacht.",
     missionLabel: "Mission",
     mission:
@@ -183,7 +183,7 @@ const de: Messages = {
   },
   products: {
     kicker: "Produktlinien",
-    title: "ZWEI SÄULEN",
+    title: "Das Sortiment",
     intro:
       "Zwei Linien decken das Wesentliche für Druckbewegungen und Ganzkörper-Widerstand ab. Hier geht es um Design und Engineering — nicht um einen Shop.",
     lines: [
@@ -205,7 +205,7 @@ const de: Messages = {
   },
   craft: {
     kicker: "Ablauf",
-    title: "FERTIGUNG & QS",
+    title: "Material & Qualität",
     aside: "Das Rückgrat einer ernsthaften Marke sind nachvollziehbare Standards und wiederholbare Prüfungen.",
     steps: [
       {
@@ -223,7 +223,7 @@ const de: Messages = {
     ],
   },
   contact: {
-    title: "SPRECHEN WIR",
+    title: "Kontakt",
     lead: "Für Handelspartnerschaften, Firmenpakete und Presse — erreichen Sie uns per E-Mail. In der Regel antworten wir innerhalb von fünf Werktagen.",
     emailLabel: "Geschäftliche E-Mail",
     email: "hello@krafit.example",

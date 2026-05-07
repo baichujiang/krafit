@@ -20,7 +20,7 @@ export function Header({ locale, messages }: Props) {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-3 md:min-h-20 md:flex-row md:items-center md:justify-between md:gap-0 md:py-2 lg:px-8">
         <div className="flex items-center justify-between md:contents">
           <Link
@@ -31,47 +31,50 @@ export function Header({ locale, messages }: Props) {
             <BrandLogo
               variant="header"
               priority
-              className="transition-opacity group-hover:opacity-90"
+              className="transition-opacity group-hover:opacity-85"
             />
             <span className="hidden min-w-0 flex-col leading-none lg:flex">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-muted">
+              <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted">
                 Training essentials
               </span>
             </span>
           </Link>
-          <div className="flex shrink-0 items-center gap-2 md:order-3">
-            <nav
-              className="flex rounded-full border border-border bg-background/60 p-0.5"
+          <div className="flex shrink-0 items-center gap-6 md:order-3">
+            <div
+              className="flex items-center gap-1 text-xs text-muted"
               aria-label={lang.switchTo}
             >
               <Link
                 href="/en"
-                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                className={`py-1 font-medium transition-colors ${
                   locale === "en"
-                    ? "bg-accent text-background"
-                    : "text-muted hover:text-foreground"
+                    ? "text-foreground underline decoration-foreground/35 underline-offset-4"
+                    : "hover:text-foreground/80"
                 }`}
                 hrefLang="en"
                 lang="en"
               >
                 {lang.en}
               </Link>
+              <span className="select-none text-muted/35" aria-hidden>
+                /
+              </span>
               <Link
                 href="/de"
-                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                className={`py-1 font-medium transition-colors ${
                   locale === "de"
-                    ? "bg-accent text-background"
-                    : "text-muted hover:text-foreground"
+                    ? "text-foreground underline decoration-foreground/35 underline-offset-4"
+                    : "hover:text-foreground/80"
                 }`}
                 hrefLang="de"
                 lang="de"
               >
                 {lang.de}
               </Link>
-            </nav>
+            </div>
             <Link
               href={`${prefix}#contact`}
-              className="rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/50 hover:bg-accent-soft"
+              className="border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:border-foreground/40 hover:bg-surface-elevated"
             >
               {nav.partner}
             </Link>
@@ -85,7 +88,7 @@ export function Header({ locale, messages }: Props) {
             <Link
               key={item.href}
               href={item.href}
-              className="shrink-0 text-sm font-medium text-muted transition-colors hover:text-foreground"
+              className="shrink-0 text-sm text-muted transition-colors hover:text-foreground"
             >
               {item.label}
             </Link>
