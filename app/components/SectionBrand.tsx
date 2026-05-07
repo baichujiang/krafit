@@ -8,28 +8,17 @@ export function SectionBrand({ messages }: Props) {
   const { brand } = messages;
 
   return (
-    <section
-      id="brand"
-      className="relative border-t border-border bg-surface py-24 md:py-32"
-    >
-      <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 bg-[radial-gradient(circle_at_100%_0%,rgba(133,168,138,0.07),transparent_65%)]" />
-      <div className="relative mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
-        <div className="grid gap-16 md:grid-cols-12 md:gap-x-10 md:gap-y-0 lg:gap-x-16">
-          <div className="md:col-span-5 lg:col-span-4">
-            <h2 className="font-serif text-[2rem] font-semibold leading-[1.15] tracking-[-0.02em] text-foreground text-balance sm:text-[2.35rem] md:text-[2.5rem]">
-              {brand.title}
-            </h2>
-            <p className="mt-8 text-[1.0625rem] leading-[1.82] text-muted md:max-w-md">
-              {brand.body}
-            </p>
+    <section id="brand" className="border-t border-border bg-surface py-24 md:py-28">
+      <div className="mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
+        <div className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-6 border border-border-strong bg-surface-elevated p-8 md:p-10">
+            <p className="label-kicker mb-5">Brand Foundation</p>
+            <h2 className="font-display text-3xl font-semibold uppercase tracking-tight sm:text-4xl">{brand.title}</h2>
+            <p className="mt-6 text-base leading-[1.75] text-muted">{brand.body}</p>
           </div>
-          <div className="flex md:col-span-1 md:justify-center">
-            <div className="hidden h-full w-px bg-gradient-to-b from-transparent via-border to-transparent md:block" />
-          </div>
-          <div className="md:col-span-6 lg:col-span-5">
-            <p className="font-serif text-[1.35rem] font-medium leading-[1.45] text-foreground/95 md:pt-10 md:text-[1.6rem] md:leading-[1.4]">
-              {brand.closing}
-            </p>
+          <div className="md:col-span-6 border border-border bg-background p-8 md:p-10">
+            <p className="label-kicker mb-5">Vision</p>
+            <p className="text-xl leading-[1.45] text-foreground md:text-2xl">{brand.closing}</p>
           </div>
         </div>
       </div>

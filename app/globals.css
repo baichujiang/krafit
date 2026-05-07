@@ -1,21 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* Layered forest — lifted mid-tones (easier on the eye than near-black) */
-  --background: #1c2521;
-  --background-warm: #232e29;
-  --foreground: #eef1ec;
-  --muted: #8b968e;
-  --surface: #2a3430;
-  --surface-elevated: #323e39;
-  --surface-muted: #1f2925;
-  --accent: #85a88a;
-  --accent-muted: #6a8570;
-  --accent-soft: rgba(133, 168, 138, 0.14);
+  --background: #101214;
+  --background-warm: #171a1f;
+  --foreground: #f0f2f5;
+  --muted: #97a0ab;
+  --surface: #1b1f26;
+  --surface-elevated: #232833;
+  --surface-muted: #151922;
+  --accent: #b5becb;
+  --accent-muted: #7f8b9a;
+  --accent-soft: rgba(181, 190, 203, 0.12);
   --brand-mark: #c8f23e;
-  --border: rgba(238, 241, 236, 0.11);
-  --border-strong: rgba(238, 241, 236, 0.2);
-  --ruler: rgba(133, 168, 138, 0.4);
+  --border: rgba(240, 242, 245, 0.1);
+  --border-strong: rgba(240, 242, 245, 0.2);
+  --ruler: rgba(200, 242, 62, 0.42);
 }
 
 @theme inline {
@@ -33,15 +32,14 @@
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-ruler: var(--ruler);
-  --font-sans: var(--font-source-sans);
-  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-source-sans), system-ui, sans-serif;
-  font-feature-settings: "kern" 1, "liga" 1;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 html {
@@ -49,20 +47,9 @@ html {
 }
 
 .label-kicker {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.26em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted);
-}
-
-/* Subtle grain — print / natural material feel */
-body::before {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  opacity: 0.028;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

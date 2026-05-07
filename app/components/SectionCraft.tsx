@@ -8,38 +8,22 @@ export function SectionCraft({ messages }: Props) {
   const { craft } = messages;
 
   return (
-    <section
-      id="craft"
-      className="border-t border-border bg-surface-muted py-24 md:py-32"
-    >
+    <section id="craft" className="border-t border-border bg-surface-muted py-24 md:py-28">
       <div className="mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
-          <header className="max-w-xl lg:max-w-[26rem]">
+        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <header className="max-w-2xl">
             <p className="label-kicker">{craft.kicker}</p>
-            <h2 className="mt-5 font-serif text-[2rem] font-semibold tracking-[-0.02em] text-foreground text-balance sm:text-[2.35rem]">
-              {craft.title}
-            </h2>
+            <h2 className="mt-5 font-display text-3xl font-semibold uppercase tracking-tight sm:text-4xl">{craft.title}</h2>
           </header>
-          <p className="max-w-md text-[1.0625rem] leading-[1.82] text-muted lg:max-w-sm lg:text-right">
-            {craft.aside}
-          </p>
+          <p className="max-w-xl text-base leading-[1.72] text-muted">{craft.aside}</p>
         </div>
 
-        <ol className="mt-20 grid gap-12 border-t border-border pt-16 md:grid-cols-3 md:gap-8 md:pt-20">
+        <ol className="grid gap-6 md:grid-cols-3">
           {craft.steps.map((step, i) => (
-            <li key={step.title} className="relative md:pl-2">
-              <span
-                className="font-serif text-[2.75rem] font-normal tabular-nums leading-none text-accent/25"
-                aria-hidden
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-5 text-[0.95rem] font-semibold leading-snug text-foreground">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-[0.9375rem] leading-[1.76] text-muted">
-                {step.body}
-              </p>
+            <li key={step.title} className="border border-border bg-background p-7">
+              <span className="text-xs font-semibold tracking-[0.22em] text-brand-mark">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-4 text-base font-semibold uppercase tracking-wide text-foreground">{step.title}</h3>
+              <p className="mt-3 text-sm leading-[1.72] text-muted">{step.body}</p>
             </li>
           ))}
         </ol>

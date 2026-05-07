@@ -8,41 +8,31 @@ export function Hero({ messages }: Props) {
   const { hero } = messages;
 
   return (
-    <section className="relative min-h-[92svh] border-b border-border bg-background-warm pt-40 pb-20 md:min-h-[min(100svh,56rem)] md:pt-36 md:pb-28">
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_60%_at_50%_-10%,rgba(133,168,138,0.1),transparent_55%)]"
-        aria-hidden
-      />
-      <div className="relative mx-auto grid max-w-[88rem] gap-12 px-6 md:grid-cols-[minmax(0,1fr)_minmax(0,min(42rem,100%))] md:gap-16 md:px-10 lg:px-14">
-        <div
-          className="hidden md:flex md:flex-col md:items-end md:pt-2"
-          aria-hidden
-        >
-          <div className="h-full min-h-[12rem] w-px bg-gradient-to-b from-ruler via-border to-transparent" />
+    <section className="relative border-b border-border bg-background-warm pt-40 pb-20 md:pt-36 md:pb-24">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-brand-mark/10 to-transparent" />
+      <div className="mx-auto grid max-w-[88rem] gap-10 px-6 md:grid-cols-12 md:gap-8 md:px-10 lg:px-14">
+        <div className="md:col-span-2 hidden md:flex items-start justify-center pt-4" aria-hidden>
+          <div className="h-28 w-px bg-ruler" />
         </div>
-        <div className="max-w-xl md:max-w-none">
-          <p className="label-kicker mb-8 max-w-md border-l-[3px] border-accent pl-5">
-            {hero.kicker}
-          </p>
-          <h1 className="font-serif text-[2.125rem] font-semibold leading-[1.14] tracking-[-0.02em] text-foreground text-balance sm:text-5xl md:text-[3.5rem] md:leading-[1.1]">
+        <div className="relative md:col-span-10 border border-border-strong bg-surface p-8 sm:p-10 md:p-14">
+          <p className="label-kicker mb-8 border-l-2 border-brand-mark pl-4">{hero.kicker}</p>
+          <h1 className="font-display text-4xl font-semibold uppercase leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
             {hero.title1}
-            <span className="mt-2 block font-normal text-muted md:mt-3">
-              {hero.title2}
-            </span>
+            <span className="block text-muted">{hero.title2}</span>
           </h1>
-          <p className="mt-12 max-w-[34rem] text-[1.0625rem] font-normal leading-[1.75] text-muted md:text-lg md:leading-[1.72]">
+          <p className="mt-10 max-w-2xl text-base leading-[1.75] text-muted md:text-lg">
             {hero.lead}
           </p>
-          <div className="mt-14 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
+          <div className="mt-12 flex flex-wrap items-center gap-4">
             <a
               href="#lines"
-              className="inline-flex w-fit items-center border border-border-strong bg-surface-muted/80 px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-foreground transition-colors hover:border-accent/50 hover:bg-surface-elevated"
+              className="inline-flex items-center border border-brand-mark bg-brand-mark px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-background transition-opacity hover:opacity-90"
             >
               {hero.ctaPrimary}
             </a>
             <a
               href="#brand"
-              className="w-fit text-sm font-medium text-foreground/90 underline decoration-accent/40 underline-offset-[7px] transition-colors hover:decoration-accent"
+              className="inline-flex items-center border border-border px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:border-brand-mark/60"
             >
               {hero.ctaSecondary}
             </a>
