@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  /* Layered forest tones — calm, physical product, not “app UI” */
-  --background: #0b100e;
-  --background-warm: #101916;
-  --foreground: #e6eae3;
-  --muted: #7d887f;
-  --surface: #131c18;
-  --surface-elevated: #1a2520;
-  --surface-muted: #0e1512;
-  --accent: #7d9b82;
-  --accent-muted: #5c7360;
-  --accent-soft: rgba(125, 155, 130, 0.12);
+  /* Layered forest — lifted mid-tones (easier on the eye than near-black) */
+  --background: #1c2521;
+  --background-warm: #232e29;
+  --foreground: #eef1ec;
+  --muted: #8b968e;
+  --surface: #2a3430;
+  --surface-elevated: #323e39;
+  --surface-muted: #1f2925;
+  --accent: #85a88a;
+  --accent-muted: #6a8570;
+  --accent-soft: rgba(133, 168, 138, 0.14);
   --brand-mark: #c8f23e;
-  --border: rgba(230, 234, 227, 0.09);
-  --border-strong: rgba(230, 234, 227, 0.16);
-  --ruler: rgba(125, 155, 130, 0.35);
+  --border: rgba(238, 241, 236, 0.11);
+  --border-strong: rgba(238, 241, 236, 0.2);
+  --ruler: rgba(133, 168, 138, 0.4);
 }
 
 @theme inline {
@@ -63,6 +63,6 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  opacity: 0.035;
+  opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

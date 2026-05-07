@@ -12,7 +12,7 @@ export function SectionBrand({ messages }: Props) {
       id="brand"
       className="relative border-t border-border bg-surface py-24 md:py-32"
     >
-      <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 bg-[radial-gradient(circle_at_100%_0%,rgba(125,155,130,0.06),transparent_65%)]" />
+      <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 bg-[radial-gradient(circle_at_100%_0%,rgba(133,168,138,0.07),transparent_65%)]" />
       <div className="relative mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
         <div className="grid gap-16 md:grid-cols-12 md:gap-x-10 md:gap-y-0 lg:gap-x-16">
           <div className="md:col-span-5 lg:col-span-4">

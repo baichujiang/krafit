@@ -10,7 +10,7 @@ export function Hero({ messages }: Props) {
   return (
     <section className="relative min-h-[92svh] border-b border-border bg-background-warm pt-40 pb-20 md:min-h-[min(100svh,56rem)] md:pt-36 md:pb-28">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_60%_at_50%_-10%,rgba(125,155,130,0.09),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_60%_at_50%_-10%,rgba(133,168,138,0.1),transparent_55%)]"
         aria-hidden
       />
       <div className="relative mx-auto grid max-w-[88rem] gap-12 px-6 md:grid-cols-[minmax(0,1fr)_minmax(0,min(42rem,100%))] md:gap-16 md:px-10 lg:px-14">
