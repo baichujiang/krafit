@@ -19,6 +19,10 @@ export function Footer({ locale, messages }: Props) {
     { href: `${prefix}#craft`, label: nav.craft },
     { href: `${prefix}#contact`, label: nav.contact },
   ];
+  const legalLinks = [
+    { href: `${prefix}/imprint`, label: footer.imprint },
+    { href: `${prefix}/privacy`, label: footer.privacy },
+  ];
 
   return (
     <footer className="border-t border-border bg-background py-14">
@@ -27,13 +31,22 @@ export function Footer({ locale, messages }: Props) {
           <BrandLogo variant="footer" />
           <p className="mt-3 text-xs uppercase tracking-[0.16em] text-muted">© {year} KRAFIT. {footer.rights}</p>
         </div>
-        <nav className="flex flex-wrap gap-7 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted">
-          {links.map((item) => (
-            <Link key={item.href} href={item.href} className="transition-colors hover:text-foreground">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex flex-col gap-5 md:items-end">
+          <nav className="flex flex-wrap gap-7 text-[12px] font-semibold uppercase tracking-[0.14em] text-muted" aria-label={messages.navAria}>
+            {links.map((item) => (
+              <Link key={item.href} href={item.href} className="transition-colors hover:text-foreground">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <nav className="flex flex-wrap gap-5 text-xs text-muted" aria-label={footer.legalNav}>
+            {legalLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="underline decoration-border-strong underline-offset-4 hover:text-foreground">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
   );

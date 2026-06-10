@@ -1,4 +1,5 @@
 import type { Messages } from "@/lib/messages";
+import { siteConfig } from "@/lib/site";
 
 type Props = {
   messages: Messages;
@@ -17,7 +18,7 @@ export function SectionProducts({ messages }: Props) {
         </header>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {products.lines.map((line) => (
+          {products.lines.map((line, index) => (
             <article key={line.tag} className="border border-border-strong bg-surface p-8 md:p-10">
               <p className="label-kicker mb-4 text-brand-mark">{line.tag}</p>
               <h3 className="font-display text-2xl font-semibold uppercase tracking-tight">{line.name}</h3>
@@ -30,6 +31,14 @@ export function SectionProducts({ messages }: Props) {
                   </li>
                 ))}
               </ul>
+              <a
+                href={siteConfig.productUrls[index]}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex border border-brand-mark bg-brand-mark px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-background transition-opacity hover:opacity-90"
+              >
+                {products.cta}
+              </a>
             </article>
           ))}
         </div>

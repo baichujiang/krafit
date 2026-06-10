@@ -16,6 +16,8 @@ export type Messages = {
     scroll: string;
   };
   brand: {
+    foundationLabel: string;
+    visionLabel: string;
     title: string;
     body: string;
     closing: string;
@@ -24,6 +26,7 @@ export type Messages = {
     kicker: string;
     title: string;
     intro: string;
+    cta: string;
     lines: {
       tag: string;
       name: string;
@@ -38,14 +41,17 @@ export type Messages = {
     steps: { title: string; body: string }[];
   };
   contact: {
+    kicker: string;
     title: string;
     lead: string;
     emailLabel: string;
-    email: string;
     emailNote: string;
   };
   footer: {
     rights: string;
+    imprint: string;
+    privacy: string;
+    legalNav: string;
   };
   lang: { en: string; de: string; switchTo: string };
 };
@@ -54,9 +60,9 @@ const en: Messages = {
   meta: {
     title: "KRAFIT — Quality training for people and planet",
     description:
-      "KRAFIT offers high-quality resistance bands and push-up stands — built to last, with an eye on reducing our footprint and supporting your health.",
+      "Discover KRAFIT resistance bands and push-up stands for focused home training.",
     keywords:
-      "KRAFIT, sustainable fitness, resistance bands, push-up bars, home training, health, CO2",
+      "KRAFIT, resistance bands, push-up bars, home training, fitness equipment",
   },
   nav: {
     brand: "About us",
@@ -72,36 +78,39 @@ const en: Messages = {
     kicker: "Quality · health · responsibility",
     title1: "Train with intention.",
     title2: "Choose equipment that lasts.",
-    lead: "We believe durable, well-made gear supports both your body and a smaller footprint — fewer replacements, more years of use, more focus on what matters.",
+    lead: "We focus on practical equipment, considered material choices, and clear product information for consistent home training.",
     ctaPrimary: "Explore products",
     ctaSecondary: "Our purpose",
     scroll: "Scroll",
   },
   brand: {
+    foundationLabel: "Brand foundation",
+    visionLabel: "Vision",
     title: "About us",
-    body: "KRAFIT is committed to offering high-quality products. Our goal is to reduce our carbon footprint while improving personal health and quality of life.",
+    body: "KRAFIT develops accessible training equipment with an emphasis on practical design, careful material selection, and everyday usability.",
     closing:
-      "Shape a better future with KRAFIT — make a positive difference for our planet and for yourself.",
+      "Our aim is simple: equipment that supports regular movement and fits naturally into life at home.",
   },
   products: {
     kicker: "Products",
     title: "The range",
+    cta: "View product",
     intro:
-      "Thoughtfully designed tools you keep for years — less waste, consistent training, clear engineering choices instead of throwaway accessories.",
+      "Straightforward training tools for strength, mobility, and repeatable sessions at home.",
     lines: [
       {
         tag: "Resistance",
         name: "Resistance system — bands",
         description:
-          "Multi-layer latex with textile jacketing for a curve that tracks natural output. Clearly marked levels for periodization and progression.",
-        highlights: ["Built to outlast seasonal trends", "Repairable mindset", "Compact — less shipping bulk"],
+          "Resistance bands in clearly marked levels for warm-ups, mobility work, and progressive strength sessions.",
+        highlights: ["Multiple resistance levels", "Compact storage", "Suitable for varied exercises"],
       },
       {
         tag: "Support",
         name: "Support system — push-up stands",
         description:
-          "Wide bases and compliant contact surfaces stay planted on wood and tile. Wrist angles validated for long sets without unnecessary strain.",
-        highlights: ["Stable geometry over time", "Quiet, home-friendly use", "Tested load cycles"],
+          "Push-up stands with broad bases and non-slip contact surfaces for controlled home workouts.",
+        highlights: ["Broad support surface", "Home-friendly format", "Neutral grip position"],
       },
     ],
   },
@@ -109,31 +118,34 @@ const en: Messages = {
     kicker: "How we work",
     title: "Materials & care",
     aside:
-      "Quality and longevity are part of how we think about impact — better products, replaced less often, with processes we keep tightening.",
+      "We review materials, construction, and care guidance as part of each product decision.",
     steps: [
       {
-        title: "Materials with a long horizon",
-        body: "We balance performance, durability, and how materials age — so gear stays trustworthy beyond the first few months.",
+        title: "Material selection",
+        body: "We compare performance, handling, and expected wear when selecting materials for each use case.",
       },
       {
-        title: "Structural validation",
-        body: "Push-up stands go through static and dynamic tilt cycles so geometry stays reliable after repeated use.",
+        title: "Construction review",
+        body: "We review dimensions, contact surfaces, and assembly details before a product enters the range.",
       },
       {
-        title: "Honest ergonomics",
-        body: "Grip radii and textures are tested with a simple question: still comfortable when the session runs long.",
+        title: "Practical ergonomics",
+        body: "Grip shape and surface choices are guided by controlled, repeatable movement during everyday training.",
       },
     ],
   },
   contact: {
+    kicker: "Contact",
     title: "Contact",
     lead: "For retail partnerships, corporate kits, and press — reach us by email. We typically reply within five business days.",
     emailLabel: "Business email",
-    email: "hello@krafit.example",
-    emailNote: "Placeholder address — replace with your live inbox before launch.",
+    emailNote: "Please do not send sensitive personal or payment information by email.",
   },
   footer: {
     rights: "All rights reserved.",
+    imprint: "Imprint",
+    privacy: "Privacy",
+    legalNav: "Legal information",
   },
   lang: {
     en: "EN",
@@ -146,9 +158,9 @@ const de: Messages = {
   meta: {
     title: "KRAFIT — Qualität für Training, Gesundheit und Verantwortung",
     description:
-      "KRAFIT bietet hochwertige Widerstandsbänder und Liegestütz-Griffe — langlebig gedacht, mit Fokus auf CO2-Bewusstsein und Ihre Lebensqualität.",
+      "Entdecken Sie KRAFIT Widerstandsbänder und Liegestütz-Griffe für fokussiertes Training zu Hause.",
     keywords:
-      "KRAFIT, nachhaltiges Training, Widerstandsbänder, Liegestützgriffe, Gesundheit, CO2, Qualität",
+      "KRAFIT, Widerstandsbänder, Liegestützgriffe, Heimtraining, Fitnessgeräte",
   },
   nav: {
     brand: "Über uns",
@@ -164,43 +176,46 @@ const de: Messages = {
     kicker: "Qualität · Gesundheit · Verantwortung",
     title1: "Trainieren Sie mit Bedacht.",
     title2: "Wählen Sie Ausrüstung, die bleibt.",
-    lead: "Wir glauben: gut gemachte, langlebige Ausrüstung stützt sowohl Ihren Körper als auch einen geringeren Fußabdruck — weniger Ersatz, mehr Jahre Nutzen, mehr Fokus auf das Wesentliche.",
+    lead: "Wir konzentrieren uns auf praktische Ausrüstung, bewusste Materialentscheidungen und klare Produktinformationen für regelmäßiges Training zu Hause.",
     ctaPrimary: "Produkte entdecken",
     ctaSecondary: "Unser Auftrag",
     scroll: "Weiter",
   },
   brand: {
+    foundationLabel: "Markenbasis",
+    visionLabel: "Vision",
     title: "Über uns",
-    body: "KRAFIT ist bestrebt, qualitativ hochwertige Produkte anzubieten. Unser Ziel ist es, unseren CO2-Fußabdruck zu reduzieren und gleichzeitig unsere persönliche Gesundheit und Lebensqualität zu verbessern.",
+    body: "KRAFIT entwickelt zugängliche Trainingsausrüstung mit Fokus auf praktische Gestaltung, sorgfältige Materialauswahl und Alltagstauglichkeit.",
     closing:
-      "Gestalten Sie mit KRAFIT eine bessere Zukunft und machen Sie einen positiven Unterschied für unseren Planeten und sich selbst.",
+      "Unser Ziel ist einfach: Ausrüstung, die regelmäßige Bewegung unterstützt und selbstverständlich in den Alltag zu Hause passt.",
   },
   products: {
     kicker: "Produkte",
     title: "Das Sortiment",
+    cta: "Produkt ansehen",
     intro:
-      "Durchdachte Helfer, die Sie Jahre begleiten — weniger Abfall, konstantes Training, klare technische Entscheidungen statt Wegwerf-Zubehör.",
+      "Übersichtliche Trainingshelfer für Kraft, Mobilität und wiederholbare Einheiten zu Hause.",
     lines: [
       {
         tag: "Widerstand",
         name: "Widerstandssystem — Bänder",
         description:
-          "Mehrschichtiges Latex mit Textilummantelung für eine Kennlinie, die natürlichem Kraftverlauf nahekommt. Klar markierte Stufen für Periodisierung und Progression.",
+          "Widerstandsbänder in klar gekennzeichneten Stufen für Aufwärmen, Mobilität und progressives Krafttraining.",
         highlights: [
-          "Gebaut, länger zu halten als Trends",
-          "Reparaturfreundliche Logik",
-          "Kompakt — weniger Versandvolumen",
+          "Mehrere Widerstandsstufen",
+          "Kompakt verstaubar",
+          "Für vielseitige Übungen",
         ],
       },
       {
         tag: "Stütze",
         name: "Stützsystem — Liegestütz-Griffe",
         description:
-          "Breite Standflächen und griffige Auflage bleiben auf Holz und Fliesen ruhig liegen. Handgelenkswinkel für lange Sätze validiert — ohne unnötige Belastung.",
+          "Liegestütz-Griffe mit breiten Standflächen und rutschhemmenden Kontaktflächen für kontrolliertes Training zu Hause.",
         highlights: [
-          "Stabile Geometrie über die Zeit",
-          "Leise, wohnortstauglich",
-          "Geprüfte Lastzyklen",
+          "Breite Auflagefläche",
+          "Wohnraumfreundliches Format",
+          "Neutrale Griffposition",
         ],
       },
     ],
@@ -209,31 +224,34 @@ const de: Messages = {
     kicker: "So arbeiten wir",
     title: "Material & Sorgfalt",
     aside:
-      "Qualität und Langlebigkeit gehören für uns zur Wirkung dazu — bessere Produkte, seltener ersetzt, mit Prozessen, die wir fortlaufend schärfen.",
+      "Materialien, Konstruktion und Pflegehinweise werden bei jeder Produktentscheidung berücksichtigt.",
     steps: [
       {
-        title: "Materialien mit Weitblick",
-        body: "Wir balancieren Leistung, Haltbarkeit und Alterung — damit die Ausrüstung über die ersten Monate hinaus verlässlich bleibt.",
+        title: "Materialauswahl",
+        body: "Wir vergleichen Leistung, Handhabung und erwartbaren Verschleiß bei der Auswahl für den jeweiligen Einsatz.",
       },
       {
-        title: "Strukturprüfung",
-        body: "Liegestütz-Griffe durchlaufen statische und dynamische Kippzyklen, damit die Geometrie bei Wiederholung stabil bleibt.",
+        title: "Konstruktionsprüfung",
+        body: "Abmessungen, Kontaktflächen und Montagedetails werden geprüft, bevor ein Produkt in das Sortiment aufgenommen wird.",
       },
       {
-        title: "Ehrliche Ergonomie",
-        body: "Radien und Oberflächen werden mit einer Frage getestet: am Ende der Einheit noch angenehm zu halten.",
+        title: "Praktische Ergonomie",
+        body: "Griffform und Oberflächenwahl orientieren sich an kontrollierten, wiederholbaren Bewegungen im Alltagstraining.",
       },
     ],
   },
   contact: {
+    kicker: "Kontakt",
     title: "Kontakt",
     lead: "Für Handelspartnerschaften, Firmenpakete und Presse — erreichen Sie uns per E-Mail. In der Regel antworten wir innerhalb von fünf Werktagen.",
     emailLabel: "Geschäftliche E-Mail",
-    email: "hello@krafit.example",
-    emailNote: "Platzhalteradresse — vor dem Launch durch Ihre echte Mailbox ersetzen.",
+    emailNote: "Bitte senden Sie keine sensiblen persönlichen Daten oder Zahlungsinformationen per E-Mail.",
   },
   footer: {
     rights: "Alle Rechte vorbehalten.",
+    imprint: "Impressum",
+    privacy: "Datenschutz",
+    legalNav: "Rechtliche Informationen",
   },
   lang: {
     en: "EN",

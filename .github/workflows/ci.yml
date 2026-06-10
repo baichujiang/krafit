@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://example.invalid
+      CONTACT_EMAIL: ci@example.invalid
+      LEGAL_NAME: KRAFIT CI
+      LEGAL_ADDRESS: CI address
+      LEGAL_REPRESENTATIVE: CI representative
+      HOSTING_PROVIDER: CI hosting provider
+      BANDS_PRODUCT_URL: https://example.invalid/bands
+      PUSHUP_STANDS_PRODUCT_URL: https://example.invalid/push-up-stands
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build

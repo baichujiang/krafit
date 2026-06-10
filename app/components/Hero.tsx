@@ -8,7 +8,7 @@ export function Hero({ messages }: Props) {
   const { hero } = messages;
 
   return (
-    <section className="relative border-b border-border bg-background-warm pt-40 pb-20 md:pt-36 md:pb-24">
+    <section className="relative border-b border-border bg-background-warm pt-52 pb-20 sm:pt-44 md:pt-36 md:pb-24">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-brand-mark/10 to-transparent" />
       <div className="mx-auto grid max-w-[88rem] gap-10 px-6 md:grid-cols-12 md:gap-8 md:px-10 lg:px-14">
         <div className="md:col-span-2 hidden md:flex items-start justify-center pt-4" aria-hidden>

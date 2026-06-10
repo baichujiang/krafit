@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KRAFIT website
 
-## Getting Started
+Bilingual KRAFIT brand and product website built with Next.js 16, React 19,
+TypeScript, and Tailwind CSS 4.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://127.0.0.1:3000`. The root URL redirects to `/en`; German content is
+available at `/de`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy the keys from `.env.example` into the deployment platform's environment
+settings. Production builds intentionally fail when any required value is
+missing, so placeholder legal or contact information cannot be deployed.
 
-## Learn More
+Required variables:
 
-To learn more about Next.js, take a look at the following resources:
+- `SITE_URL`
+- `CONTACT_EMAIL`
+- `LEGAL_NAME`
+- `LEGAL_ADDRESS`
+- `LEGAL_REPRESENTATIVE`
+- `HOSTING_PROVIDER`
+- `BANDS_PRODUCT_URL`
+- `PUSHUP_STANDS_PRODUCT_URL`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Optional variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `VAT_ID`
+- `REGISTER_COURT`
+- `REGISTER_NUMBER`
 
-## Deploy on Vercel
+The privacy text reflects the current implementation: local fonts and images,
+server access logs, and email contact only. Update the policy and consent flow
+before adding analytics, advertising, embedded media, forms, or non-essential
+cookies.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Verification
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run check
+```
+
+For a production build, provide the required environment variables:
+
+```bash
+SITE_URL=https://www.example.com \
+CONTACT_EMAIL=hello@example.com \
+LEGAL_NAME="Example GmbH" \
+LEGAL_ADDRESS="Street 1, 80331 Munich, Germany" \
+LEGAL_REPRESENTATIVE="Example Person" \
+HOSTING_PROVIDER="Example Host, Host Street 1, Germany" \
+BANDS_PRODUCT_URL=https://shop.example/products/resistance-bands \
+PUSHUP_STANDS_PRODUCT_URL=https://shop.example/products/push-up-stands \
+npm run build
+```
+
+## Deployment checklist
+
+1. Verify the legal identity, address, representative, register, and VAT data.
+2. Confirm the contact inbox is active and monitored.
+3. Set the canonical production origin in `SITE_URL`.
+4. Set both product URLs to live checkout or marketplace pages.
+5. Review product claims against current product documentation.
+6. Run `npm run check` and a production build.
+7. Test `/en`, `/de`, purchase links, legal pages, metadata routes, and a real 404 over HTTPS.

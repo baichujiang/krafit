@@ -17,10 +17,6 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export function generateStaticParams() {
-  return [{ locale: "en" satisfies Locale }, { locale: "de" satisfies Locale }];
-}
-
 export default async function Home({ params }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) {

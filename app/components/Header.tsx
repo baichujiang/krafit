@@ -48,9 +48,9 @@ export function Header({ locale, messages }: Props) {
           </div>
         </div>
 
-        <nav className="-mx-6 flex items-center gap-8 overflow-x-auto border-t border-border px-6 pt-3 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:border-0 md:px-0 md:pt-0 [&::-webkit-scrollbar]:hidden" aria-label={navAria}>
+        <nav className="-mx-6 grid grid-cols-2 gap-x-7 gap-y-3 border-t border-border px-6 pt-3 sm:grid-cols-4 md:mx-0 md:flex md:items-center md:gap-8 md:border-0 md:px-0 md:pt-0" aria-label={navAria}>
           {items.map((item) => (
-            <Link key={item.href} href={item.href} className="shrink-0 text-[12px] font-semibold uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground">
+            <Link key={item.href} href={item.href} className="text-[11px] font-semibold uppercase tracking-[0.13em] text-muted transition-colors hover:text-foreground md:text-[12px] md:tracking-[0.16em]">
               {item.label}
             </Link>
           ))}
