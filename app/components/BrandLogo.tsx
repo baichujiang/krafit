@@ -6,25 +6,22 @@ type Props = {
   priority?: boolean;
 };
 
-/** Intrinsic size of public/logo-wordmark.png (tight crop, no square canvas). */
-const LOGO_W = 968;
-const LOGO_H = 187;
-
 const sizeClass = {
-  header: "h-12 w-auto max-w-full sm:h-14 md:h-16",
-  footer: "h-10 w-auto max-w-full sm:h-11",
+  header: "h-9 w-[9.75rem] sm:h-10 sm:w-[10.75rem] md:h-11 md:w-[11.75rem]",
+  footer: "h-7 w-[7.75rem] sm:h-8 sm:w-[8.75rem]",
 } as const;
 
-/** Wordmark PNG — tight bounds so height-based scaling sets width naturally. */
 export function BrandLogo({ className = "", variant, priority }: Props) {
   return (
-    <Image
-      src="/logo-wordmark.png"
-      alt="KRAFIT"
-      width={LOGO_W}
-      height={LOGO_H}
-      priority={Boolean(priority)}
-      className={`object-contain object-left ${sizeClass[variant]} ${className}`}
-    />
+    <span className={`relative block overflow-hidden ${sizeClass[variant]} ${className}`}>
+      <Image
+        src="/logo-wordmark-light.png"
+        alt="KRAFIT"
+        fill
+        preload={Boolean(priority)}
+        sizes={variant === "header" ? "172px" : "140px"}
+        className="object-cover object-center mix-blend-multiply"
+      />
+    </span>
   );
 }

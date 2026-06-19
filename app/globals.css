@@ -1,20 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #101214;
-  --background-warm: #171a1f;
-  --foreground: #f0f2f5;
-  --muted: #97a0ab;
-  --surface: #1b1f26;
-  --surface-elevated: #232833;
-  --surface-muted: #151922;
-  --accent: #b5becb;
-  --accent-muted: #7f8b9a;
-  --accent-soft: rgba(181, 190, 203, 0.12);
-  --brand-mark: #c8f23e;
-  --border: rgba(240, 242, 245, 0.1);
-  --border-strong: rgba(240, 242, 245, 0.2);
-  --ruler: rgba(200, 242, 62, 0.42);
+  --background: #FBFAF6;
+  --background-warm: #F1ECE3;
+  --foreground: #181816;
+  --muted: #67625A;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-muted: #F6F2EA;
+  --accent: #253C48;
+  --accent-muted: #7B746B;
+  --accent-soft: rgba(28, 27, 24, 0.06);
+  --accent-blue: #0D8DB8;
+  --accent-blue-soft: rgba(13, 141, 184, 0.12);
+  --accent-orange: #E8651B;
+  --accent-orange-soft: rgba(232, 101, 27, 0.12);
+  --brand-mark: #8CC63F;
+  --brand-mark-soft: rgba(140, 198, 63, 0.12);
+  --border: #E2DACE;
+  --border-strong: #C7BCAE;
 }
 
 @theme inline {
@@ -28,28 +32,150 @@
   --color-accent: var(--accent);
   --color-accent-muted: var(--accent-muted);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-soft: var(--accent-blue-soft);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-orange-soft: var(--accent-orange-soft);
   --color-brand-mark: var(--brand-mark);
+  --color-brand-mark-soft: var(--brand-mark-soft);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
-  --color-ruler: var(--ruler);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-display-var);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.label-kicker {
-  font-size: 0.68rem;
+.eyebrow {
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.06em;
+  color: var(--accent);
   text-transform: uppercase;
+}
+
+/* ── Button system ────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  min-height: 2.75rem;
+  padding: 0.625rem 1.375rem;
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--brand-mark);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-lg {
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary {
+  background: var(--foreground);
+  color: var(--background);
+  box-shadow: 0 12px 28px rgba(24, 24, 22, 0.16);
+}
+
+.btn-primary:hover {
+  background: #2b2b27;
+  box-shadow: 0 16px 36px rgba(24, 24, 22, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 1px 2px rgba(28, 27, 24, 0.06);
+}
+
+.btn-brand {
+  background: var(--brand-mark);
+  border: 1px solid var(--brand-mark);
+  color: var(--foreground);
+  box-shadow: 0 12px 26px rgba(140, 198, 63, 0.22);
+}
+
+.btn-brand:hover {
+  background: #7db835;
+  border-color: #7db835;
+  box-shadow: 0 16px 34px rgba(140, 198, 63, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-brand:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 1px 2px rgba(140, 198, 63, 0.15);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+  box-shadow: 0 4px 12px rgba(28, 27, 24, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: none;
+}
+
+.btn-ghost {
+  background: transparent;
   color: var(--muted);
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: rgba(140, 198, 63, 0.4);
+  text-underline-offset: 4px;
+}
+
+.btn-ghost:hover {
+  color: var(--foreground);
+  text-decoration-color: var(--brand-mark);
+}
+
+.btn-ghost:active {
+  transform: none;
+}
+
+.btn .arrow {
+  display: inline-block;
+  transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.75em;
+}
+
+.btn:hover .arrow {
+  transform: translate(1px, -1px);
 }

@@ -8,17 +8,22 @@ export function SectionBrand({ messages }: Props) {
   const { brand } = messages;
 
   return (
-    <section id="brand" className="border-t border-border bg-surface py-24 md:py-28">
-      <div className="mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
-        <div className="grid gap-10 md:grid-cols-12">
-          <div className="md:col-span-6 border border-border-strong bg-surface-elevated p-8 md:p-10">
-            <p className="label-kicker mb-5">{brand.foundationLabel}</p>
-            <h2 className="font-display text-3xl font-semibold uppercase tracking-tight sm:text-4xl">{brand.title}</h2>
-            <p className="mt-6 text-base leading-[1.75] text-muted">{brand.body}</p>
+    <section id="brand" className="bg-background py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="grid gap-8 border-y border-border py-10 md:grid-cols-[0.8fr_1.2fr] md:items-center md:py-14">
+          <div>
+            <p className="eyebrow">{brand.kicker}</p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-normal sm:text-4xl">
+              {brand.title}
+            </h2>
           </div>
-          <div className="md:col-span-6 border border-border bg-background p-8 md:p-10">
-            <p className="label-kicker mb-5">{brand.visionLabel}</p>
-            <p className="text-xl leading-[1.45] text-foreground md:text-2xl">{brand.closing}</p>
+          <div>
+            <p className="text-base leading-relaxed text-muted md:text-lg">
+              {brand.body}
+            </p>
+            <p className="mt-5 font-display text-xl font-medium leading-snug tracking-normal text-foreground md:text-2xl">
+              {brand.closing}
+            </p>
           </div>
         </div>
       </div>

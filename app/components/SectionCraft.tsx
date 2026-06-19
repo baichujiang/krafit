@@ -8,25 +8,25 @@ export function SectionCraft({ messages }: Props) {
   const { craft } = messages;
 
   return (
-    <section id="craft" className="border-t border-border bg-surface-muted py-24 md:py-28">
-      <div className="mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
-        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <header className="max-w-2xl">
-            <p className="label-kicker">{craft.kicker}</p>
-            <h2 className="mt-5 font-display text-3xl font-semibold uppercase tracking-tight sm:text-4xl">{craft.title}</h2>
-          </header>
-          <p className="max-w-xl text-base leading-[1.72] text-muted">{craft.aside}</p>
+    <section id="craft" className="bg-background-warm py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="mb-10 max-w-2xl">
+          <p className="eyebrow">{craft.kicker}</p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-normal sm:text-4xl">
+            {craft.title}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-muted">{craft.aside}</p>
         </div>
 
-        <ol className="grid gap-6 md:grid-cols-3">
-          {craft.steps.map((step, i) => (
-            <li key={step.title} className="border border-border bg-background p-7">
-              <span className="text-xs font-semibold tracking-[0.22em] text-brand-mark">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-4 text-base font-semibold uppercase tracking-wide text-foreground">{step.title}</h3>
-              <p className="mt-3 text-sm leading-[1.72] text-muted">{step.body}</p>
-            </li>
+        <div className="grid gap-6 md:grid-cols-3">
+          {craft.steps.map((step, index) => (
+            <div key={step.title} className="rounded-lg border border-border bg-surface p-6 shadow-[0_14px_36px_rgba(24,24,22,0.05)]">
+              <span className="text-xs font-semibold text-accent-muted">0{index + 1}</span>
+              <h3 className="mt-3 text-base font-medium text-foreground">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

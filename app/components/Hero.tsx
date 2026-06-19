@@ -1,41 +1,95 @@
-import type { Messages } from "@/lib/messages";
+import Image from "next/image";
+
+import type { Locale, Messages } from "@/lib/messages";
+import { products } from "@/lib/site";
 
 type Props = {
+  locale: Locale;
   messages: Messages;
 };
 
-export function Hero({ messages }: Props) {
+export function Hero({ locale, messages }: Props) {
   const { hero } = messages;
+  const quickFacts =
+    locale === "de"
+      ? ["3 Widerstandsstufen", "46-seitiger Guide", "Buchenholz-Griffe"]
+      : ["3 resistance levels", "46-page guide", "Beechwood stands"];
 
   return (
-    <section className="relative border-b border-border bg-background-warm pt-52 pb-20 sm:pt-44 md:pt-36 md:pb-24">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-brand-mark/10 to-transparent" />
-      <div className="mx-auto grid max-w-[88rem] gap-10 px-6 md:grid-cols-12 md:gap-8 md:px-10 lg:px-14">
-        <div className="md:col-span-2 hidden md:flex items-start justify-center pt-4" aria-hidden>
-          <div className="h-28 w-px bg-ruler" />
-        </div>
-        <div className="relative md:col-span-10 border border-border-strong bg-surface p-8 sm:p-10 md:p-14">
-          <p className="label-kicker mb-8 border-l-2 border-brand-mark pl-4">{hero.kicker}</p>
-          <h1 className="font-display text-4xl font-semibold uppercase leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
+    <section className="relative overflow-hidden bg-background pt-20 pb-12 md:pt-28 md:pb-16">
+      <div
+        className="absolute inset-x-0 top-0 h-[72%] bg-[linear-gradient(135deg,#fbfaf6_0%,#f5efe4_48%,#e8f3ee_100%)]"
+        aria-hidden
+      />
+      <div className="relative mx-auto grid max-w-6xl gap-5 px-5 md:min-h-[calc(100vh-7rem)] md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-12 md:px-8">
+        <div className="order-2 pb-2 md:order-1">
+          <p className="eyebrow">{hero.kicker}</p>
+          <h1 className="mt-3 max-w-2xl font-display text-[clamp(2.15rem,10vw,5rem)] font-semibold leading-[1.02] tracking-normal sm:mt-4">
             {hero.title1}
-            <span className="block text-muted">{hero.title2}</span>
+            <br />
+            <span className="text-accent">{hero.title2}</span>
           </h1>
-          <p className="mt-10 max-w-2xl text-base leading-[1.75] text-muted md:text-lg">
+          <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted sm:text-base md:mt-6 md:text-lg">
             {hero.lead}
           </p>
-          <div className="mt-12 flex flex-wrap items-center gap-4">
+          <div className="mt-6 grid max-w-md grid-cols-1 gap-3 sm:grid-cols-[1fr_1.05fr] md:mt-8">
             <a
-              href="#lines"
-              className="inline-flex items-center border border-brand-mark bg-brand-mark px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-background transition-opacity hover:opacity-90"
+              href={products.resistanceBands.amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary btn-lg w-full"
             >
-              {hero.ctaPrimary}
+              {hero.ctaBuy} <span className="arrow">↗</span>
             </a>
             <a
-              href="#brand"
-              className="inline-flex items-center border border-border px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:border-brand-mark/60"
+              href="#guide"
+              className="btn btn-brand btn-lg w-full"
             >
-              {hero.ctaSecondary}
+              {hero.ctaGuide}
             </a>
+          </div>
+          <div className="mt-8 grid max-w-lg grid-cols-3 gap-2 border-t border-border pt-5">
+            {quickFacts.map((fact) => (
+              <p key={fact} className="text-xs font-medium leading-snug text-accent-muted sm:text-sm">
+                {fact}
+              </p>
+            ))}
+          </div>
+          <a
+            href="#lines"
+            className="mt-5 inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
+          >
+            <span className="inline-block h-4 w-px bg-border-strong" aria-hidden />
+            {hero.ctaProducts}
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="mt-px" aria-hidden>
+              <path d="M6 2.5v7M3 7l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div className="order-1 md:order-2">
+          <div className="relative mx-auto aspect-square w-full max-w-[18rem] sm:max-w-[28rem] md:max-w-none">
+            <div
+              className="absolute inset-4 rounded-[1.5rem] bg-white shadow-[0_20px_60px_rgba(24,24,22,0.12)] sm:inset-6 sm:rounded-[2rem] md:shadow-[0_24px_80px_rgba(24,24,22,0.12)]"
+              aria-hidden
+            />
+            <div
+              className="absolute -top-2 right-8 h-20 w-20 rounded-full bg-accent-blue-soft sm:h-28 sm:w-28"
+              aria-hidden
+            />
+            <div
+              className="absolute bottom-4 left-4 h-24 w-24 rounded-full bg-accent-orange-soft sm:h-32 sm:w-32"
+              aria-hidden
+            />
+            <Image
+              src={products.resistanceBands.image}
+              alt={hero.imageAlt}
+              width={products.resistanceBands.imageWidth}
+              height={products.resistanceBands.imageHeight}
+              loading="eager"
+              fetchPriority="high"
+              className="relative h-full w-full object-contain p-1 drop-shadow-[0_24px_32px_rgba(24,24,22,0.18)] sm:p-3"
+              sizes="(max-width: 768px) 90vw, 50vw"
+            />
           </div>
         </div>
       </div>

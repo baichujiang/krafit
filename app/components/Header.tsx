@@ -9,52 +9,57 @@ type Props = {
 };
 
 export function Header({ locale, messages }: Props) {
-  const { nav, navAria, homeAria, lang, tagline } = messages;
+  const { nav, navAria, homeAria, lang } = messages;
   const prefix = `/${locale}`;
 
   const items = [
-    { href: `${prefix}#brand`, label: nav.brand },
     { href: `${prefix}#lines`, label: nav.lines },
+    { href: `${prefix}#guide`, label: nav.guide },
     { href: `${prefix}#craft`, label: nav.craft },
+    { href: `${prefix}#brand`, label: nav.brand },
     { href: `${prefix}#contact`, label: nav.contact },
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/96 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-[88rem] flex-col gap-3 px-6 py-3 md:min-h-[5.25rem] md:flex-row md:items-center md:justify-between md:gap-0 md:px-10 lg:px-14">
-        <div className="flex items-center justify-between md:contents">
-          <Link href={prefix} className="group flex min-w-0 shrink items-center gap-4" aria-label={homeAria}>
-            <BrandLogo variant="header" priority className="transition-opacity group-hover:opacity-90" />
-            <span className="hidden max-w-[15rem] border-l border-border pl-4 lg:block">
-              <span className="label-kicker text-[0.62rem] tracking-[0.2em]">{tagline}</span>
-            </span>
-          </Link>
-          <div className="flex shrink-0 items-center gap-5 md:order-3">
-            <div className="flex items-center gap-2 text-xs text-muted" aria-label={lang.switchTo}>
-              <Link href="/en" hrefLang="en" lang="en" className={`font-semibold ${locale === "en" ? "text-foreground" : "hover:text-foreground/80"}`}>
-                {lang.en}
-              </Link>
-              <span className="text-border-strong" aria-hidden>•</span>
-              <Link href="/de" hrefLang="de" lang="de" className={`font-semibold ${locale === "de" ? "text-foreground" : "hover:text-foreground/80"}`}>
-                {lang.de}
-              </Link>
-            </div>
-            <Link
-              href={`${prefix}#contact`}
-              className="inline-flex items-center border border-border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] hover:border-brand-mark/70"
-            >
-              {nav.partner}
-            </Link>
-          </div>
-        </div>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background shadow-sm">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3 md:px-8">
+        <Link href={prefix} className="shrink-0" aria-label={homeAria}>
+          <BrandLogo variant="header" priority />
+        </Link>
 
-        <nav className="-mx-6 grid grid-cols-2 gap-x-7 gap-y-3 border-t border-border px-6 pt-3 sm:grid-cols-4 md:mx-0 md:flex md:items-center md:gap-8 md:border-0 md:px-0 md:pt-0" aria-label={navAria}>
+        <nav className="hidden items-center gap-6 md:flex" aria-label={navAria}>
           {items.map((item) => (
-            <Link key={item.href} href={item.href} className="text-[11px] font-semibold uppercase tracking-[0.13em] text-muted transition-colors hover:text-foreground md:text-[12px] md:tracking-[0.16em]">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
+            >
               {item.label}
             </Link>
           ))}
         </nav>
+
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1.5 text-xs text-muted" aria-label={lang.switchTo}>
+            <Link
+              href="/en"
+              hrefLang="en"
+              lang="en"
+              className={`px-1 py-0.5 font-medium ${locale === "en" ? "text-foreground" : "hover:text-foreground/80"}`}
+            >
+              {lang.en}
+            </Link>
+            <span className="text-border-strong" aria-hidden>/</span>
+            <Link
+              href="/de"
+              hrefLang="de"
+              lang="de"
+              className={`px-1 py-0.5 font-medium ${locale === "de" ? "text-foreground" : "hover:text-foreground/80"}`}
+            >
+              {lang.de}
+            </Link>
+          </div>
+        </div>
       </div>
     </header>
   );

@@ -1,24 +1,24 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 
-export default function LocaleNotFound() {
+import { getMessages, type Locale } from "@/lib/messages";
+
+export default async function LocaleNotFound() {
+  const headersList = await headers();
+  const locale: Locale = headersList.get("x-locale") === "de" ? "de" : "en";
+  const messages = getMessages(locale);
+
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background-warm px-6 py-16">
-      <div className="w-full max-w-2xl border border-border-strong bg-surface p-8 text-center sm:p-12">
-        <p className="label-kicker">404</p>
-        <h1 className="mt-5 font-display text-4xl font-semibold uppercase">
-          Page not found / Seite nicht gefunden
-        </h1>
-        <p className="mt-6 text-muted">
-          The requested page does not exist. Die angeforderte Seite existiert nicht.
-        </p>
-        <div className="mt-9 flex flex-wrap justify-center gap-4">
-          <Link className="border border-brand-mark bg-brand-mark px-6 py-3 text-xs font-semibold uppercase tracking-widest text-background" href="/en">
-            English home
-          </Link>
-          <Link className="border border-border px-6 py-3 text-xs font-semibold uppercase tracking-widest" href="/de">
-            Deutsche Startseite
-          </Link>
-        </div>
+    <main className="flex min-h-full flex-1 flex-col items-center justify-center px-5 py-24 text-center">
+      <p className="eyebrow">404</p>
+      <h1 className="mt-4 font-display text-3xl font-semibold tracking-normal sm:text-4xl">
+        {messages.notFound.title}
+      </h1>
+      <p className="mt-3 max-w-md text-base leading-relaxed text-muted">{messages.notFound.body}</p>
+      <div className="mt-8">
+        <Link href={`/${locale}`} className="btn btn-primary">
+          {messages.notFound.home}
+        </Link>
       </div>
     </main>
   );

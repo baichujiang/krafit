@@ -1,5 +1,4 @@
 import type { Messages } from "@/lib/messages";
-import { siteConfig } from "@/lib/site";
 
 type Props = {
   messages: Messages;
@@ -9,23 +8,22 @@ export function SectionContact({ messages }: Props) {
   const { contact } = messages;
 
   return (
-    <section id="contact" className="border-t border-border bg-background-warm py-24 md:py-28">
-      <div className="mx-auto max-w-[88rem] px-6 md:px-10 lg:px-14">
-        <div className="grid gap-8 border border-border-strong bg-surface p-8 md:grid-cols-12 md:p-12">
-          <div className="md:col-span-7">
-            <p className="label-kicker mb-4">{contact.kicker}</p>
-            <h2 className="font-display text-3xl font-semibold uppercase tracking-tight sm:text-4xl">{contact.title}</h2>
-            <p className="mt-6 max-w-2xl text-base leading-[1.75] text-muted">{contact.lead}</p>
-          </div>
-          <div className="md:col-span-5 md:border-l md:border-border md:pl-8">
-            <p className="label-kicker">{contact.emailLabel}</p>
+    <section id="contact" className="bg-foreground py-16 text-background md:py-24">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="mx-auto max-w-xl text-center">
+          <p className="eyebrow text-brand-mark">{contact.kicker}</p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-normal sm:text-4xl">
+            {contact.title}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-background/72">{contact.lead}</p>
+          <div className="mt-6">
+            <p className="text-xs font-medium text-background/55">{contact.emailLabel}</p>
             <a
-              href={`mailto:${siteConfig.contactEmail}`}
-              className="mt-4 inline-block text-lg font-semibold tracking-wide text-foreground underline decoration-brand-mark/45 underline-offset-8"
+              href={`mailto:${contact.email}`}
+              className="mt-1 inline-block text-lg font-medium text-background underline decoration-brand-mark/45 underline-offset-4 hover:decoration-brand-mark"
             >
-              {siteConfig.contactEmail}
+              {contact.email}
             </a>
-            <p className="mt-5 text-sm leading-[1.65] text-muted">{contact.emailNote}</p>
           </div>
         </div>
       </div>

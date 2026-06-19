@@ -3,9 +3,11 @@ import { notFound } from "next/navigation";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Hero } from "../components/Hero";
+import { JsonLd } from "../components/JsonLd";
 import { SectionBrand } from "../components/SectionBrand";
 import { SectionContact } from "../components/SectionContact";
 import { SectionCraft } from "../components/SectionCraft";
+import { SectionGuide } from "../components/SectionGuide";
 import { SectionProducts } from "../components/SectionProducts";
 import {
   getMessages,
@@ -27,11 +29,13 @@ export default async function Home({ params }: Props) {
 
   return (
     <>
+      <JsonLd locale={locale} />
       <Header locale={locale} messages={messages} />
       <main className="flex-1">
-        <Hero messages={messages} />
+        <Hero locale={locale} messages={messages} />
+        <SectionProducts locale={locale} messages={messages} />
+        <SectionGuide locale={locale} messages={messages} />
         <SectionBrand messages={messages} />
-        <SectionProducts messages={messages} />
         <SectionCraft messages={messages} />
         <SectionContact messages={messages} />
       </main>
