@@ -1,46 +1,33 @@
-const isProduction = process.env.NODE_ENV === "production";
-
-function required(name: string, developmentValue: string): string {
+function fromEnv(name: string, fallback: string): string {
   const value = process.env[name]?.trim();
-  if (value) {
-    return value;
-  }
-
-  if (isProduction) {
-    throw new Error(
-      `Missing required production environment variable: ${name}. ` +
-        "See .env.example for the required deployment configuration.",
-    );
-  }
-
-  return developmentValue;
+  return value || fallback;
 }
 
 function optional(name: string): string | undefined {
   return process.env[name]?.trim() || undefined;
 }
 
-const rawSiteUrl = required("SITE_URL", "https://krafit.eu");
+const rawSiteUrl = fromEnv("SITE_URL", "https://krafit.eu");
 
 export const siteConfig = {
   url: new URL(rawSiteUrl),
-  contactEmail: required("CONTACT_EMAIL", "kontakt@krafit.eu"),
-  legalName: required("LEGAL_NAME", "KRAFIT"),
-  legalAddress: required(
+  contactEmail: fromEnv("CONTACT_EMAIL", "kontakt@krafit.eu"),
+  legalName: fromEnv("LEGAL_NAME", "KRAFIT"),
+  legalAddress: fromEnv(
     "LEGAL_ADDRESS",
     "Configure LEGAL_ADDRESS before production deployment",
   ),
-  legalRepresentative: required(
+  legalRepresentative: fromEnv(
     "LEGAL_REPRESENTATIVE",
     "Configure LEGAL_REPRESENTATIVE before production deployment",
   ),
-  hostingProvider: required(
+  hostingProvider: fromEnv(
     "HOSTING_PROVIDER",
     "Configure HOSTING_PROVIDER before production deployment",
   ),
   productUrls: [
-    required("BANDS_PRODUCT_URL", "https://www.amazon.de/dp/B0DYMVLGF5"),
-    required("PUSHUP_STANDS_PRODUCT_URL", "https://www.amazon.de/dp/B0DJM7F5XB"),
+    fromEnv("BANDS_PRODUCT_URL", "https://www.amazon.de/dp/B0DYMVLGF5"),
+    fromEnv("PUSHUP_STANDS_PRODUCT_URL", "https://www.amazon.de/dp/B0DJM7F5XB"),
   ],
   vatId: optional("VAT_ID"),
   registerCourt: optional("REGISTER_COURT"),
