@@ -11,11 +11,9 @@ type Props = {
 const productImages = [products.resistanceBands, products.pushUpStands];
 const productAccents = [
   {
-    imageTone: "bg-[linear-gradient(145deg,#ffffff_0%,#eef8fb_55%,#fff0e6_100%)]",
     badgeTone: "bg-accent-blue-soft text-accent",
   },
   {
-    imageTone: "bg-[linear-gradient(145deg,#ffffff_0%,#f6efe4_55%,#eef5e7_100%)]",
     badgeTone: "bg-accent-orange-soft text-accent",
   },
 ] as const;
@@ -29,7 +27,7 @@ export function SectionProducts({ locale, messages }: Props) {
   const { products: p } = messages;
 
   return (
-    <section id="lines" className="bg-background-warm py-16 md:py-24">
+    <section id="lines" className="bg-background-warm py-12 md:py-18">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -41,7 +39,7 @@ export function SectionProducts({ locale, messages }: Props) {
           <p className="max-w-xl text-base leading-relaxed text-muted md:text-right">{p.intro}</p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-9 grid gap-6 lg:grid-cols-2">
           {p.lines.map((line, index) => {
             const img = productImages[index];
             const accent = productAccents[index];
@@ -50,13 +48,13 @@ export function SectionProducts({ locale, messages }: Props) {
                 key={line.tag}
                 className="grid overflow-hidden rounded-lg border border-border bg-surface shadow-[0_18px_50px_rgba(24,24,22,0.06)]"
               >
-                <div className={`relative aspect-[4/3] overflow-hidden ${accent.imageTone}`}>
+                <div className="relative flex h-80 items-center justify-center bg-white p-2 sm:h-96">
                   <Image
                     src={img.image}
                     alt={altTexts[locale][index]}
                     width={img.imageWidth}
                     height={img.imageHeight}
-                    className="h-full w-full object-contain p-5 drop-shadow-[0_18px_24px_rgba(24,24,22,0.13)] transition-transform duration-300 hover:scale-[1.025]"
+                    className="max-h-full max-w-full object-contain drop-shadow-[0_14px_20px_rgba(24,24,22,0.1)]"
                     sizes="(max-width: 768px) 90vw, 45vw"
                   />
                   <span className={`absolute top-4 left-4 rounded-full px-3 py-1 text-xs font-medium ${accent.badgeTone}`}>
@@ -110,7 +108,7 @@ export function SectionProducts({ locale, messages }: Props) {
                       {line.buyOnAmazon} <span className="arrow">↗</span>
                     </a>
                     {index === 0 && (
-                      <a href={`/${locale}/guide`} className="btn btn-brand w-full">
+                      <a href="#guide" className="btn btn-brand w-full">
                         {messages.guide.productLink}
                       </a>
                     )}

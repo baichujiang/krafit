@@ -1,18 +1,17 @@
 import Image from "next/image";
 
-import type { Locale, Messages } from "@/lib/messages";
+import type { Messages } from "@/lib/messages";
 import { resistanceBandGuidePdf } from "@/lib/site";
 
 type Props = {
-  locale: Locale;
   messages: Messages;
 };
 
-export function SectionGuide({ locale, messages }: Props) {
+export function SectionGuide({ messages }: Props) {
   const { guide } = messages;
 
   return (
-    <section id="guide" className="bg-surface py-16 md:py-24">
+    <section id="guide" className="bg-surface py-12 md:py-18">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="grid gap-8 overflow-hidden rounded-lg border border-border bg-[linear-gradient(135deg,#ffffff_0%,#f6f2ea_100%)] p-6 shadow-[0_18px_50px_rgba(24,24,22,0.06)] md:grid-cols-2 md:items-center md:gap-14 md:p-10">
           <div className="order-2 md:order-1">
@@ -48,7 +47,11 @@ export function SectionGuide({ locale, messages }: Props) {
             </p>
 
             <div className="mt-6 grid max-w-md grid-cols-1 gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
-              <a href={`/${locale}/guide`} className="btn btn-brand w-full">
+              <a
+                href={resistanceBandGuidePdf.href}
+                download={resistanceBandGuidePdf.filename}
+                className="btn btn-primary w-full"
+              >
                 {guide.download}
               </a>
               <a

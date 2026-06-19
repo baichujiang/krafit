@@ -62,9 +62,9 @@ export const resistanceBandGuidePdf = {
 export const products = {
   resistanceBands: {
     amazonUrl: siteConfig.productUrls[0],
-    image: "/products/resistance-bands.png",
-    imageWidth: 918,
-    imageHeight: 606,
+    image: "/products/resistance-bands.jpg",
+    imageWidth: 4302,
+    imageHeight: 4302,
   },
   pushUpStands: {
     amazonUrl: siteConfig.productUrls[1],

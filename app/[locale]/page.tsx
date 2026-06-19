@@ -34,7 +34,7 @@ export default async function Home({ params }: Props) {
       <main className="flex-1">
         <Hero locale={locale} messages={messages} />
         <SectionProducts locale={locale} messages={messages} />
-        <SectionGuide locale={locale} messages={messages} />
+        <SectionGuide messages={messages} />
         <SectionBrand messages={messages} />
         <SectionCraft messages={messages} />
         <SectionContact messages={messages} />
