@@ -5,7 +5,7 @@ import test from "node:test";
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
 test("content contains no launch placeholders or example contact addresses", async () => {
-  const messages = await read("lib/messages.ts");
+  const messages = await read("lib/messages.js");
 
   assert.doesNotMatch(messages, /krafit\.example/i);
   assert.doesNotMatch(messages, /placeholder|platzhalter/i);
