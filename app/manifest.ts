@@ -5,15 +5,15 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "KRAFIT",
     short_name: "KRAFIT",
     description: "Training equipment for focused home workouts.",
-    start_url: "/en",
+    start_url: "/",
     display: "standalone",
-    background_color: "#101214",
-    theme_color: "#101214",
+    background_color: "#FBFAF6",
+    theme_color: "#FBFAF6",
     icons: [
       {
-        src: "/favicon.ico",
+        src: "/icon.svg",
         sizes: "any",
-        type: "image/x-icon",
+        type: "image/svg+xml",
       },
     ],
   };

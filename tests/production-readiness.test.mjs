@@ -25,6 +25,26 @@ test("production metadata and legal routes are present", async () => {
   await Promise.all(requiredFiles.map((path) => read(path)));
 });
 
+test("legal identity is hardcoded in source, not env placeholders", async () => {
+  const site = await read("lib/site.ts");
+  const envExample = await read(".env.example");
+
+  assert.match(site, /export const legalInfo/);
+  assert.match(site, /hostingProvider:/);
+  assert.doesNotMatch(site, /LEGAL_NAME|LEGAL_ADDRESS|LEGAL_REPRESENTATIVE|HOSTING_PROVIDER/);
+  assert.doesNotMatch(site, /Configure LEGAL_|REPLACE_WITH|TODO:/i);
+  assert.doesNotMatch(envExample, /^LEGAL_/m);
+  assert.doesNotMatch(envExample, /^HOSTING_PROVIDER=/m);
+});
+
+test("social preview image is wired into metadata", async () => {
+  const metadata = await read("lib/metadata.ts");
+  const site = await read("lib/site.ts");
+
+  assert.match(metadata, /ogImage/);
+  assert.match(site, /og-image\.png/);
+});
+
 test("security headers and framework disclosure setting are configured", async () => {
   const config = await read("next.config.ts");
 
@@ -34,15 +54,22 @@ test("security headers and framework disclosure setting are configured", async (
   assert.match(config, /Strict-Transport-Security/);
 });
 
-test("deployment configuration documents every required legal value", async () => {
+test("hero product image stays within a production-friendly size budget", async () => {
+  const { stat } = await import("node:fs/promises");
+  const file = await stat(new URL("../public/products/resistance-bands.jpg", import.meta.url));
+  const maxBytes = 512 * 1024;
+
+  assert.ok(
+    file.size <= maxBytes,
+    `resistance-bands.jpg is ${file.size} bytes; expected <= ${maxBytes}`,
+  );
+});
+
+test("deployment configuration documents every required public value", async () => {
   const envExample = await read(".env.example");
   const required = [
     "SITE_URL",
     "CONTACT_EMAIL",
-    "LEGAL_NAME",
-    "LEGAL_ADDRESS",
-    "LEGAL_REPRESENTATIVE",
-    "HOSTING_PROVIDER",
     "BANDS_PRODUCT_URL",
     "PUSHUP_STANDS_PRODUCT_URL",
   ];

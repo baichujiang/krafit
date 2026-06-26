@@ -3,35 +3,32 @@ function fromEnv(name: string, fallback: string): string {
   return value || fallback;
 }
 
-function optional(name: string): string | undefined {
-  return process.env[name]?.trim() || undefined;
-}
-
 const rawSiteUrl = fromEnv("SITE_URL", "https://krafit.eu");
+
+export type LegalInfo = {
+  name: string;
+  hostingProvider: string;
+  address?: string;
+  representative?: string;
+  vatId?: string;
+  registerCourt?: string;
+  registerNumber?: string;
+};
+
+/** Public provider details for imprint and privacy pages — edit here, not in env. */
+export const legalInfo: LegalInfo = {
+  name: "KRAFIT",
+  hostingProvider:
+    "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA",
+};
 
 export const siteConfig = {
   url: new URL(rawSiteUrl),
   contactEmail: fromEnv("CONTACT_EMAIL", "kontakt@krafit.eu"),
-  legalName: fromEnv("LEGAL_NAME", "KRAFIT"),
-  legalAddress: fromEnv(
-    "LEGAL_ADDRESS",
-    "Configure LEGAL_ADDRESS before production deployment",
-  ),
-  legalRepresentative: fromEnv(
-    "LEGAL_REPRESENTATIVE",
-    "Configure LEGAL_REPRESENTATIVE before production deployment",
-  ),
-  hostingProvider: fromEnv(
-    "HOSTING_PROVIDER",
-    "Configure HOSTING_PROVIDER before production deployment",
-  ),
   productUrls: [
     fromEnv("BANDS_PRODUCT_URL", "https://www.amazon.de/dp/B0DYMVLGF5"),
     fromEnv("PUSHUP_STANDS_PRODUCT_URL", "https://www.amazon.de/dp/B0DJM7F5XB"),
   ],
-  vatId: optional("VAT_ID"),
-  registerCourt: optional("REGISTER_COURT"),
-  registerNumber: optional("REGISTER_NUMBER"),
 } as const;
 
 export const siteUrl = siteConfig.url.toString().replace(/\/$/, "");
@@ -46,12 +43,19 @@ export const resistanceBandGuidePdf = {
   coverHeight: 1200,
 } as const;
 
+export const ogImage = {
+  path: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "KRAFIT",
+} as const;
+
 export const products = {
   resistanceBands: {
     amazonUrl: siteConfig.productUrls[0],
     image: "/products/resistance-bands.jpg",
-    imageWidth: 4302,
-    imageHeight: 4302,
+    imageWidth: 1600,
+    imageHeight: 1600,
   },
   pushUpStands: {
     amazonUrl: siteConfig.productUrls[1],

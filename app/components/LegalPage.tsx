@@ -12,10 +12,11 @@ type Props = {
   locale: Locale;
   title: string;
   intro: string;
+  updated?: string;
   sections: Section[];
 };
 
-export function LegalPage({ locale, title, intro, sections }: Props) {
+export function LegalPage({ locale, title, intro, updated, sections }: Props) {
   const backLabel = locale === "de" ? "Zurück zur Startseite" : "Back to home";
 
   return (
@@ -29,6 +30,7 @@ export function LegalPage({ locale, title, intro, sections }: Props) {
           {title}
         </h1>
         <p className="mt-6 max-w-3xl text-base leading-[1.75] text-muted">{intro}</p>
+        {updated ? <p className="mt-3 text-sm text-muted">{updated}</p> : null}
 
         <div className="mt-12 grid gap-10">
           {sections.map((section) => (

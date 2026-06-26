@@ -25,7 +25,6 @@ export type Messages = {
     lead: string;
     ctaBuy: string;
     ctaGuide: string;
-    ctaProducts: string;
     imageAlt: string;
   };
   guide: {
@@ -39,16 +38,6 @@ export type Messages = {
     view: string;
     highlights: [string, string, string];
     productLink: string;
-    page: {
-      meta: { title: string; description: string };
-      heading: string;
-      intro: string;
-      whatsInside: string;
-      contents: string[];
-      ctaDownload: string;
-      ctaBrowse: string;
-      alsoBuy: string;
-    };
   };
   brand: {
     kicker: string;
@@ -80,7 +69,6 @@ export type Messages = {
     rights: string;
     imprint: string;
     privacy: string;
-    shopOnAmazon: string;
   };
   legal: {
     privacy: {
@@ -88,6 +76,7 @@ export type Messages = {
       title: string;
       updated: string;
       intro: string;
+      controllerTitle: string;
       sections: { title: string; body: string }[];
     };
   };

@@ -1,4 +1,5 @@
 import type { Messages } from "@/lib/messages";
+import { products } from "@/lib/site";
 
 type Props = {
   messages: Messages;
@@ -23,6 +24,16 @@ export function SectionContact({ messages }: Props) {
               className="mt-1 inline-block text-lg font-medium text-background underline decoration-brand-mark/45 underline-offset-4 hover:decoration-brand-mark"
             >
               {contact.email}
+            </a>
+          </div>
+          <div className="mt-6">
+            <a
+              href={products.resistanceBands.amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-background underline decoration-brand-mark/45 underline-offset-4 hover:decoration-brand-mark"
+            >
+              {contact.buyLabel} <span aria-hidden>↗</span>
             </a>
           </div>
         </div>

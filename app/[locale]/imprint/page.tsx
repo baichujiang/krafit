@@ -2,26 +2,31 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { LegalPage } from "@/app/components/LegalPage";
+import { buildPageMetadata } from "@/lib/metadata";
 import { isLocale, type Locale } from "@/lib/messages";
-import { siteConfig } from "@/lib/site";
+import { legalInfo, siteConfig } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  return {
-    title: locale === "de" ? "Impressum | KRAFIT" : "Imprint | KRAFIT",
-    description:
-      locale === "de"
-        ? "Anbieterkennzeichnung und Kontaktinformationen von KRAFIT."
-        : "Provider identification and contact information for KRAFIT.",
-    alternates: {
-      canonical: `/${locale}/imprint`,
-      languages: { en: "/en/imprint", de: "/de/imprint" },
-    },
-  };
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) {
+    return {};
+  }
+  const locale = raw as Locale;
+  const page =
+    locale === "de"
+      ? {
+          title: "Impressum | KRAFIT",
+          description: "Anbieterkennzeichnung und Kontaktinformationen von KRAFIT.",
+        }
+      : {
+          title: "Imprint | KRAFIT",
+          description: "Provider identification and contact information for KRAFIT.",
+        };
+  return buildPageMetadata(locale, page, "/imprint");
 }
 
 export default async function ImprintPage({ params }: Props) {
@@ -30,49 +35,71 @@ export default async function ImprintPage({ params }: Props) {
     notFound();
   }
   const locale = raw as Locale;
+
   const registration =
-    siteConfig.registerCourt && siteConfig.registerNumber
-      ? `${siteConfig.registerCourt}, ${siteConfig.registerNumber}`
+    legalInfo.registerCourt && legalInfo.registerNumber
+      ? `${legalInfo.registerCourt}, ${legalInfo.registerNumber}`
       : undefined;
+
+  const emailLink = (
+    <a className="text-foreground underline" href={`mailto:${siteConfig.contactEmail}`}>
+      {siteConfig.contactEmail}
+    </a>
+  );
+
+  const providerParagraphs = legalInfo.address
+    ? [
+        <>
+          {legalInfo.name}
+          <br />
+          {legalInfo.address}
+        </>,
+      ]
+    : [<>{legalInfo.name}</>];
+
+  const contactParagraphs = [
+    ...(legalInfo.representative
+      ? [
+          locale === "de" ? (
+            <>Vertretungsberechtigt: {legalInfo.representative}</>
+          ) : (
+            <>Authorized representative: {legalInfo.representative}</>
+          ),
+        ]
+      : []),
+    <>{locale === "de" ? "E-Mail: " : "Email: "}{emailLink}</>,
+  ];
+
+  const hostingParagraphs = [<>{legalInfo.hostingProvider}</>];
 
   const sections =
     locale === "de"
       ? [
           {
             title: "Angaben gemäß § 5 DDG",
-            paragraphs: [
-              <>
-                {siteConfig.legalName}
-                <br />
-                {siteConfig.legalAddress}
-              </>,
-            ],
+            paragraphs: providerParagraphs,
           },
           {
             title: "Vertretung und Kontakt",
-            paragraphs: [
-              <>Vertretungsberechtigt: {siteConfig.legalRepresentative}</>,
-              <>
-                E-Mail:{" "}
-                <a className="text-foreground underline" href={`mailto:${siteConfig.contactEmail}`}>
-                  {siteConfig.contactEmail}
-                </a>
-              </>,
-            ],
+            paragraphs: contactParagraphs,
           },
-          ...(registration || siteConfig.vatId
+          ...(registration || legalInfo.vatId
             ? [
                 {
                   title: "Register- und Steuerangaben",
                   paragraphs: [
                     ...(registration ? [<>Register: {registration}</>] : []),
-                    ...(siteConfig.vatId
-                      ? [<>Umsatzsteuer-Identifikationsnummer: {siteConfig.vatId}</>]
+                    ...(legalInfo.vatId
+                      ? [<>Umsatzsteuer-Identifikationsnummer: {legalInfo.vatId}</>]
                       : []),
                   ],
                 },
               ]
             : []),
+          {
+            title: "Hosting",
+            paragraphs: hostingParagraphs,
+          },
           {
             title: "Haftung für Inhalte und Links",
             paragraphs: [
@@ -88,37 +115,27 @@ export default async function ImprintPage({ params }: Props) {
       : [
           {
             title: "Provider information",
-            paragraphs: [
-              <>
-                {siteConfig.legalName}
-                <br />
-                {siteConfig.legalAddress}
-              </>,
-            ],
+            paragraphs: providerParagraphs,
           },
           {
             title: "Representation and contact",
-            paragraphs: [
-              <>Authorized representative: {siteConfig.legalRepresentative}</>,
-              <>
-                Email:{" "}
-                <a className="text-foreground underline" href={`mailto:${siteConfig.contactEmail}`}>
-                  {siteConfig.contactEmail}
-                </a>
-              </>,
-            ],
+            paragraphs: contactParagraphs,
           },
-          ...(registration || siteConfig.vatId
+          ...(registration || legalInfo.vatId
             ? [
                 {
                   title: "Registration and tax details",
                   paragraphs: [
                     ...(registration ? [<>Register: {registration}</>] : []),
-                    ...(siteConfig.vatId ? [<>VAT ID: {siteConfig.vatId}</>] : []),
+                    ...(legalInfo.vatId ? [<>VAT ID: {legalInfo.vatId}</>] : []),
                   ],
                 },
               ]
             : []),
+          {
+            title: "Hosting",
+            paragraphs: hostingParagraphs,
+          },
           {
             title: "Content and external links",
             paragraphs: [

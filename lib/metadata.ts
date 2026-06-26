@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 
 import type { Locale, Messages } from "@/lib/messages";
-import { siteUrl } from "@/lib/site";
+import { ogImage, siteUrl } from "@/lib/site";
 
 type PageMeta = {
   title: string;
   description: string;
 };
+
+const socialImages = [
+  {
+    url: ogImage.path,
+    width: ogImage.width,
+    height: ogImage.height,
+    alt: ogImage.alt,
+  },
+];
 
 export function buildPageMetadata(
   locale: Locale,
@@ -35,20 +44,13 @@ export function buildPageMetadata(
       siteName: "KRAFIT",
       title: page.title,
       description: page.description,
-      images: [
-        {
-          url: "/icon.svg",
-          width: 512,
-          height: 512,
-          alt: "KRAFIT",
-        },
-      ],
+      images: socialImages,
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: ["/icon.svg"],
+      images: [ogImage.path],
     },
   };
 }
