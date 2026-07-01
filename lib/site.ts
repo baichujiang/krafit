@@ -9,7 +9,9 @@ export type LegalInfo = {
   name: string;
   hostingProvider: string;
   address?: string;
-  representative?: string;
+  legalForm?: { de: string; en: string };
+  representative?: { de: string; en: string };
+  phone?: string;
   vatId?: string;
   registerCourt?: string;
   registerNumber?: string;
@@ -17,7 +19,18 @@ export type LegalInfo = {
 
 /** Public provider details for imprint and privacy pages — edit here, not in env. */
 export const legalInfo: LegalInfo = {
-  name: "KRAFIT",
+  name: "Valeridium OÜ",
+  legalForm: {
+    de: "Rechtsform: Osaühing (OÜ) nach dem Recht der Republik Estland",
+    en: "Legal form: private limited company (OÜ) under the laws of the Republic of Estonia",
+  },
+  address: "Tartu mnt 67/1-13b, Kesklinna linnaosa, 10115 Tallinn, Estonia",
+  representative: {
+    de: "die Mitglieder des Vorstands; einsehbar im Estnischen e-Handelsregister (e-Äriregister) unter Registrikood 17473866",
+    en: "members of the management board; see Estonian Business Register (e-Äriregister) under registry code 17473866",
+  },
+  registerCourt: "Estonian Business Register (e-Äriregister)",
+  registerNumber: "17473866",
   hostingProvider:
     "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA",
 };

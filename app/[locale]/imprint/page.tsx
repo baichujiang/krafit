@@ -36,38 +36,76 @@ export default async function ImprintPage({ params }: Props) {
   }
   const locale = raw as Locale;
 
-  const registration =
-    legalInfo.registerCourt && legalInfo.registerNumber
-      ? `${legalInfo.registerCourt}, ${legalInfo.registerNumber}`
-      : undefined;
-
   const emailLink = (
     <a className="text-foreground underline" href={`mailto:${siteConfig.contactEmail}`}>
       {siteConfig.contactEmail}
     </a>
   );
 
-  const providerParagraphs = legalInfo.address
-    ? [
-        <>
-          {legalInfo.name}
-          <br />
-          {legalInfo.address}
-        </>,
-      ]
-    : [<>{legalInfo.name}</>];
+  const providerParagraphs = [
+    legalInfo.address ? (
+      <>
+        {legalInfo.name}
+        <br />
+        {legalInfo.address}
+      </>
+    ) : (
+      <>{legalInfo.name}</>
+    ),
+    ...(legalInfo.legalForm ? [<>{legalInfo.legalForm[locale]}</>] : []),
+  ];
 
   const contactParagraphs = [
     ...(legalInfo.representative
       ? [
           locale === "de" ? (
-            <>Vertretungsberechtigt: {legalInfo.representative}</>
+            <>Vertretungsberechtigt: {legalInfo.representative.de}</>
           ) : (
-            <>Authorized representative: {legalInfo.representative}</>
+            <>Authorized representative: {legalInfo.representative.en}</>
           ),
         ]
       : []),
     <>{locale === "de" ? "E-Mail: " : "Email: "}{emailLink}</>,
+    ...(legalInfo.phone
+      ? [
+          <>
+            {locale === "de" ? "Telefon: " : "Phone: "}
+            <a className="text-foreground underline" href={`tel:${legalInfo.phone.replace(/\s/g, "")}`}>
+              {legalInfo.phone}
+            </a>
+          </>,
+        ]
+      : []),
+  ];
+
+  const registrationParagraphs = [
+    ...(legalInfo.registerCourt
+      ? [
+          locale === "de" ? (
+            <>Registerstelle: {legalInfo.registerCourt}</>
+          ) : (
+            <>Register: {legalInfo.registerCourt}</>
+          ),
+        ]
+      : []),
+    ...(legalInfo.registerNumber
+      ? [
+          locale === "de" ? (
+            <>Registrikood: {legalInfo.registerNumber}</>
+          ) : (
+            <>Registry code: {legalInfo.registerNumber}</>
+          ),
+        ]
+      : []),
+    ...(legalInfo.vatId
+      ? [
+          locale === "de" ? (
+            <>Umsatzsteuer-Identifikationsnummer: {legalInfo.vatId}</>
+          ) : (
+            <>VAT ID: {legalInfo.vatId}</>
+          ),
+        ]
+      : []),
   ];
 
   const hostingParagraphs = [<>{legalInfo.hostingProvider}</>];
@@ -83,16 +121,11 @@ export default async function ImprintPage({ params }: Props) {
             title: "Vertretung und Kontakt",
             paragraphs: contactParagraphs,
           },
-          ...(registration || legalInfo.vatId
+          ...(registrationParagraphs.length > 0
             ? [
                 {
                   title: "Register- und Steuerangaben",
-                  paragraphs: [
-                    ...(registration ? [<>Register: {registration}</>] : []),
-                    ...(legalInfo.vatId
-                      ? [<>Umsatzsteuer-Identifikationsnummer: {legalInfo.vatId}</>]
-                      : []),
-                  ],
+                  paragraphs: registrationParagraphs,
                 },
               ]
             : []),
@@ -121,14 +154,11 @@ export default async function ImprintPage({ params }: Props) {
             title: "Representation and contact",
             paragraphs: contactParagraphs,
           },
-          ...(registration || legalInfo.vatId
+          ...(registrationParagraphs.length > 0
             ? [
                 {
                   title: "Registration and tax details",
-                  paragraphs: [
-                    ...(registration ? [<>Register: {registration}</>] : []),
-                    ...(legalInfo.vatId ? [<>VAT ID: {legalInfo.vatId}</>] : []),
-                  ],
+                  paragraphs: registrationParagraphs,
                 },
               ]
             : []),
