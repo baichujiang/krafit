@@ -30,7 +30,8 @@ test("legal identity is hardcoded in source, not env placeholders", async () => 
   const envExample = await read(".env.example");
 
   assert.match(site, /export const legalInfo/);
-  assert.match(site, /hostingProvider:/);
+  assert.doesNotMatch(site, /hostingProvider:/);
+  assert.doesNotMatch(await read("app/[locale]/imprint/page.tsx"), /title: "Hosting"/);
   assert.doesNotMatch(site, /LEGAL_NAME|LEGAL_ADDRESS|LEGAL_REPRESENTATIVE|HOSTING_PROVIDER/);
   assert.doesNotMatch(site, /Configure LEGAL_|REPLACE_WITH|TODO:/i);
   assert.doesNotMatch(envExample, /^LEGAL_/m);

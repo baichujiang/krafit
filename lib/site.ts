@@ -7,7 +7,6 @@ const rawSiteUrl = fromEnv("SITE_URL", "https://krafit.eu");
 
 export type LegalInfo = {
   name: string;
-  hostingProvider: string;
   address?: string;
   legalForm?: { de: string; en: string };
   representative?: { de: string; en: string };
@@ -31,8 +30,6 @@ export const legalInfo: LegalInfo = {
   },
   registerCourt: "Estonian Business Register (e-Äriregister)",
   registerNumber: "17473866",
-  hostingProvider:
-    "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA",
 };
 
 export const siteConfig = {

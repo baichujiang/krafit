@@ -20,11 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale === "de"
       ? {
           title: "Impressum | KRAFIT",
-          description: "Anbieterkennzeichnung und Kontaktinformationen von KRAFIT.",
+          description:
+            "Anbieterkennzeichnung von Valeridium OÜ für die Website krafit.eu.",
         }
       : {
           title: "Imprint | KRAFIT",
-          description: "Provider identification and contact information for KRAFIT.",
+          description: "Provider identification for Valeridium OÜ on krafit.eu.",
         };
   return buildPageMetadata(locale, page, "/imprint");
 }
@@ -108,8 +109,6 @@ export default async function ImprintPage({ params }: Props) {
       : []),
   ];
 
-  const hostingParagraphs = [<>{legalInfo.hostingProvider}</>];
-
   const sections =
     locale === "de"
       ? [
@@ -129,10 +128,6 @@ export default async function ImprintPage({ params }: Props) {
                 },
               ]
             : []),
-          {
-            title: "Hosting",
-            paragraphs: hostingParagraphs,
-          },
           {
             title: "Haftung für Inhalte und Links",
             paragraphs: [
@@ -163,10 +158,6 @@ export default async function ImprintPage({ params }: Props) {
               ]
             : []),
           {
-            title: "Hosting",
-            paragraphs: hostingParagraphs,
-          },
-          {
             title: "Content and external links",
             paragraphs: [
               <>
@@ -184,8 +175,8 @@ export default async function ImprintPage({ params }: Props) {
       title={locale === "de" ? "Impressum" : "Imprint"}
       intro={
         locale === "de"
-          ? "Anbieterkennzeichnung und Kontaktinformationen für dieses digitale Angebot."
-          : "Provider identification and contact details for this digital service."
+          ? "Anbieterkennzeichnung für krafit.eu. Betreiber ist Valeridium OÜ; KRAFIT ist eine Produktmarke."
+          : "Provider identification for krafit.eu. The site is operated by Valeridium OÜ; KRAFIT is a product brand."
       }
       sections={sections}
     />

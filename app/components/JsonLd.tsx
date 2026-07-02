@@ -1,4 +1,4 @@
-import { contactEmail, siteUrl, products } from "@/lib/site";
+import { contactEmail, legalInfo, siteUrl, products } from "@/lib/site";
 import type { Locale } from "@/lib/messages";
 
 type Props = {
@@ -13,6 +13,7 @@ export function JsonLd({ locale }: Props) {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
         name: "KRAFIT",
+        legalName: legalInfo.name,
         url: siteUrl,
         email: contactEmail,
         inLanguage: locale === "de" ? "de-DE" : "en-US",
